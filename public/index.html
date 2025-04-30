@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionnaire</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="questionnaire">
+    <div id="start-screen">
+      <h2>Welcome to our questionnaire</h2>
+      <p>Thank you for taking time answering the following questions</p>
+      <p>Please click below when you're ready to begin</p>
+      <button id="start-btn">Start</button>
+    </div>
+
+    <div id="instruction-screen" style="display: none;">
+      <h2 id="instruction-text"></h2>
+      <button id="continue-btn">Continue</button>
+    </div>
+
+    <div id="thank-you-screen" style="display: none;">
+      <p>You have completed the first part. Click proceed to continue.</p>
+      <button id="proceed-btn">Proceed</button>
+    </div>
+
+    <div id="question-screen" style="display: none;">
+      <h2 id="question-text"></h2>
+      <div>
+        <button id="yes-btn">Yes</button>
+        <button id="no-btn">No</button>
+      </div>
+      <button id="next-btn" style="display: none;">Next Question</button>
+    </div>
+
+    <div id="result-screen" style="display: none;">
+      <h2>All Done!</h2>
+      <p>Thank you for your participation</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,5 +1,5 @@
-# 🎓 PROG2900 Bachelor Thesis Project # 
-**Cursor Dynamics for Deception Detection**  
+# 🎓 PROG2900 - Bachelor Thesis Project # 
+Title: Cursor Dynamics for Deception Detection 
 Author: Nemanja Tosic  
 Supervisor: Kiran Raja
 Company: Mobai AS

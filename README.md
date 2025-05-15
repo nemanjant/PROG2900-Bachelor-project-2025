@@ -173,7 +173,7 @@ Make sure to verify the paths and JSON structure before running the scripts. The
 
 This section describes how to train the classical Random Forest model and the deep learning LSTM-GRU-Attention model using the scripts provided in the `classical_model_training/` and `deep_learning_model_training/` directories.
 
-### Classical Machine Learning (Random Forest)
+**Classical Machine Learning (Random Forest)**
 
 **1. Train/Test Split – Baseline Random Forest**
 

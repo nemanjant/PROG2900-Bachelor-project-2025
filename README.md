@@ -168,3 +168,29 @@ python data_analysys_stats/utils/labeling_data_training.py
 All generated visualizations are automatically saved to `data_analysys_stats/graph_charts/`.
 
 Make sure to verify the paths and JSON structure before running the scripts. These plots support both analysis and illustration of behavioral differences between truthful and deceitful responses.
+
+### Model Training
+
+This section describes how to train the classical Random Forest model and the deep learning LSTM-GRU-Attention model using the scripts provided in the `classical_model_training/` and `deep_learning_model_training/` directories.
+
+### Classical Machine Learning (Random Forest)
+
+**1. Train/Test Split – Baseline Random Forest**
+
+Run the following script to train and evaluate a basic Random Forest model on an 80/20 data split:
+```
+python classical_model_training/model_training_rf_v2.py
+```
+Outputs are performance metrics printed in terminal and saved confusion matrix and feature importance plots.
+
+**2. Stratified 5-Fold Cross-Validation**
+
+Use this script to evaluate model robustness across 5 folds:
+```
+python classical_model_training/model_training_rf_cv_fold.py
+```
+Output is fold-wise accuracy, recall and  macro F1-score.
+
+All visualisations of classical model training are saved in `classical_model_training/classical_graph/`.
+
+

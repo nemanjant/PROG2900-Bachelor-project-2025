@@ -66,7 +66,7 @@ PROG2900-Bachelor-project-2025/
 │
 ├── server.js                        # Node.js backend for receiving and storing JSON mouse data.
 │
-├── server.js                        # Requiremnets for installation
+├── requirements.txt                 # Installation requiremnets
 │
 └── README.md                        # Project documentation.
 ```

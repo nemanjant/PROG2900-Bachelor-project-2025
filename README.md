@@ -108,13 +108,41 @@ pip install -r requirements.txt
 
 ## Usage Instructions
 
-### 1. Collecting Data (Optional)
+### Collecting Data (Optional)
 
-Run the Node.js backend. The backend saves mouse data to JSON files locally during the experiment. After collection, data needs to be sorted in two folders data/truthful and data/deceitful. Samples needs to be labeled.
+Run the Node.js backend. 
 ```
 node server.js
 ```
+The backend saves mouse data to JSON files locally during the experiment. After collection, data needs to be sorted in two folders data/truthful and data/deceitful. Samples needs to be labeled.
 
+### Collected Data Analysis
+
+This section explains how to generate visualizations and statistical summaries from collected data. All scripts below are located in `data_analysys_stats/utils/`. Before running them, ensure you have installed all required Python packages listed in `requirements.txt`.
+
+**1. Generate Summary Statistics**
+
+Extract key behavioral metrics (e.g., hesitation, pause count, jerk spikes):
+```
+python data_analysys_stats/utils/average_mouse_stats.py
+```
+This will produce `truthful_mouse_stats_summary.json` and `deceitful_mouse_stats_summary.json` loocated in: `data_analysys_stats/averaged_data/`.
+
+**2. Interpolate Average Movement Trajectories**
+Smooth and interpolate mean cursor paths for both classes:
+```
+python data_analysys_stats/utils/average_mouse_pattern_graphs.py
+```
+This generates `truthful_averaged_result_interpolated.json ` and  `deceitful_averaged_result_interpolated.json `.
+
+**3. Plot Average Movement Feature Charts**
+Compare high-level movement statistics across classes:
+```
+python data_analysys_stats/utils/average_mouse_stats_chart.py
+```
+
+**4. Plot Acceleration, Curvature, and Jerk Time-Series**
+For detailed temporal comparisons between truthful and deceitful responses:
 
 
 

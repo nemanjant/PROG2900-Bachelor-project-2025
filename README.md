@@ -86,3 +86,15 @@ npm install
 pip install -r requirements.txt
 ```
 
+## Usage Instructions
+
+### 1. Collecting Data (Optional)
+
+Run the Node.js backend. The backend saves mouse data to JSON files locally during the experiment. After collection, data needs to be sorted in two folders data/truthful and data/deceitful. Samples needs to be labeled.
+```
+node server.js
+```
+
+
+
+

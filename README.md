@@ -129,6 +129,7 @@ python data_analysys_stats/utils/average_mouse_stats.py
 This will produce `truthful_mouse_stats_summary.json` and `deceitful_mouse_stats_summary.json` loocated in: `data_analysys_stats/averaged_data/`.
 
 **2. Interpolate Average Movement Trajectories**
+
 Smooth and interpolate mean cursor paths for both classes:
 ```
 python data_analysys_stats/utils/average_mouse_pattern_graphs.py
@@ -136,13 +137,34 @@ python data_analysys_stats/utils/average_mouse_pattern_graphs.py
 This generates `truthful_averaged_result_interpolated.json ` and  `deceitful_averaged_result_interpolated.json `.
 
 **3. Plot Average Movement Feature Charts**
+
 Compare high-level movement statistics across classes:
 ```
 python data_analysys_stats/utils/average_mouse_stats_chart.py
 ```
 
 **4. Plot Acceleration, Curvature, and Jerk Time-Series**
+
 For detailed temporal comparisons between truthful and deceitful responses:
+```
+python data_analysys_stats/utils/acj_plot_graphs.py
+python data_analysys_stats/utils/acj_interpolation_plot.py
+```
 
+**5. Plot Jerk Spike Patterns**
+   
+Visualize frequency and intensity of motor conflict events (jerk):
+```
+python data_analysys_stats/utils/jspk_plot_graphs.py
+```
 
+**6. Label Training Samples**
 
+Add class labels (0 = truthful, 1 = deceitful) to JSON samples for model training:
+```
+python data_analysys_stats/utils/labeling_data_training.py
+```
+
+All generated visualizations are automatically saved to `data_analysys_stats/graph_charts/`.
+
+Make sure to verify the paths and JSON structure before running the scripts. These plots support both analysis and illustration of behavioral differences between truthful and deceitful responses.

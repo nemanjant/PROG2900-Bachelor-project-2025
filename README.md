@@ -66,5 +66,23 @@ PROG2900-Bachelor-project-2025/
 │
 ├── server.js                        # Node.js backend for receiving and storing JSON mouse data.
 │
+├── server.js                        # Requiremnets for installation
+│
 └── README.md                        # Project documentation.
 ```
+
+## Installation
+
+### 1. Clone repository:
+```
+git clone https://github.com/nemanjant/PROG2900-Bachelor-project-2025.git
+cd PROG2900-Bachelor-project-2025
+```
+
+### 2. Install dependencies:
+Ensure you have Node.js and Python installed. Then, run:
+```
+npm install
+pip install -r requirements.txt
+```
+

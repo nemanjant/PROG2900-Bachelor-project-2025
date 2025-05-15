@@ -32,43 +32,63 @@ The Repository Structure section outlines the organization of all project files,
 
 ```
 PROG2900-Bachelor-project-2025/
-├── classical_model_training/        # Python scripts for Random Forest model.
-│   ├── train_random_forest.py       # Baseline RF classifier with train/test split.
-│   ├── train_rf_5fold.py            # Stratified 5-fold cross-validation version of the RF model.
-│   └── utils_rf.py                  # Shared functions for feature loading and preprocessing.
+├── classical_model_training/                      # Classical machine learning pipeline (Random Forest)
+│   ├── classical_graph/                           # Visualizations specific to classical model results
+│   │   └── ...                                     # (e.g., confusion matrix, feature importance plots)
+│   ├── model_training_rf_cv_fold.py               # Random Forest model with Stratified K-Fold CV
+│   └── model_training_rf_v1.py                    # Baseline Random Forest model
 │
-├── deep_learning_model_training/    # Deep learning pipeline using LSTM → GRU → Attention.
-│   ├── train_deep_model.py          # Main training script with 5-fold CV, callbacks, focal loss.
-│   ├── model_definition.py          # Model architecture (sequence + meta-features).
-│   ├── data_loader.py               # Loads JSON, extracts features, sequences, and labels.
-│   └── evaluation_utils.py          # Functions for confusion matrix, ROC, training curves.
+├── data/                                          # Raw mouse movement data organized by class
+│   ├── deceitful/                                 # 350 JSON samples representing deceptive responses
+│   │   └── ...                                     # Individual participant trials (JSON format)
+│   └── truthful/                                  # 350 JSON samples representing truthful responses
+│       └── ...                                     # Same structure as above
 │
-├── data/                            # Mouse movement dataset.
-│   ├── truthful/                    # 350 JSON files representing truthful responses.
-│   ├── deceitful/                   # 350 JSON files representing deceptive responses.
-│   └── sample_schema.md             # Description of JSON file structure and parameters.
+├── data_analysys_stats/                           # Scripts and data for exploratory data analysis and statistics
+│   ├── averaged_data/                             # Precomputed average trajectories and stats per class
+│   │   ├── deceitful_averaged_result_interpolated.json      # Interpolated average trajectory for deceitful
+│   │   ├── deceitful_mouse_stats_summary.json               # Summary stats for deceitful mouse behavior
+│   │   ├── truthful_averaged_result_interpolated.json       # Interpolated average trajectory for truthful
+│   │   └── truthful_mouse_stats_summary.json                # Summary stats for truthful mouse behavior
+│   ├── graph_charts/                              # Exported visual plots
+│   │   └── ...                                     # Graphs for speed, acceleration, jerk, etc.
+│   └── utils/                                     # Python scripts for generating stats and charts
+│       ├── acj_interpolation_plot.py              # Generates acceleration/curvature/jerk trajectory plots
+│       ├── acj_plot_graphs.py                     # Draws values as separate time-series plots
+│       ├── average_mouse_pattern_graphs.py        # Plots average paths for each class
+│       ├── average_mouse_stats_chart.py           # Bar charts of avg. movement features per class
+│       ├── average_mouse_stats.py                 # Calculates summary statistics from JSON
+│       ├── jspk_plot_graphs.py                    # Plots jerk spike patterns
+│       └── labeling_data_training.py              # Helper script for tagging samples with class labels
 │
-├── data_analysys_stats/            # Scripts for exploratory analysis and statistical plots.
-│   ├── visualize_trajectories.py    # Plots average movement paths for truthful vs. deceitful.
-│   ├── feature_stats_plot.py        # Generates histograms, bar plots, and time series.
-│   ├── correlation_matrix.py        # Creates feature correlation heatmaps.
-│   └── feature_importance_plot.py   # Visualizes feature importance (classical + DL models).
+├── deep_learning_model_training/                  # Deep learning model training (LSTM + GRU + Attention)
+│   ├── best_dl/                                   # Saved best-performing model version and metadata
+│   │   └── ...                                     # Could include architecture visualizations, checkpoints
+│   ├── export_training_log_table.py              # Exports all training metrics (acc, F1, etc.) into a CSV
+│   ├── model_fold_1.h5                            # Trained model for Fold 1 (Keras HDF5 format)
+│   ├── model_fold_2.h5                            # Trained model for Fold 2
+│   ├── model_fold_3.h5                            # Trained model for Fold 3
+│   ├── model_fold_4.h5                            # Trained model for Fold 4
+│   ├── model_fold_5.h5                            # Trained model for Fold 5
+│   ├── model_training_lstm_gru_v1.py             # Version 1: Deep model training script with fixed setup
+│   ├── model_training_lstm_gru_v2.py             # Version 2: More advanced DL training (e.g., attention, callbacks)
+│   ├── training_log_fold_1.csv                   # Training history: accuracy, F1, loss (Fold 1)
+│   ├── training_log_fold_2.csv
+│   ├── training_log_fold_3.csv
+│   ├── training_log_fold_4.csv
+│   └── training_log_fold_5.csv
 │
-├── public/                          # Frontend of the web experiment interface.
-│   ├── index.html                   # Main UI for question prompts and response buttons.
-│   ├── style.css                    # Custom styling for interface.
-│   └── script.js                    # JavaScript logic for cursor tracking and client-side events.
+├── public/                                       # Web interface frontend for data collection (browser)
+│   ├── index.html                                 # Static HTML page with question interface
+│   ├── script.js                                  # JavaScript for mouse tracking and interaction
+│   └── styles.css                                 # Basic CSS styling for the UI
 │
-├── node_modules/                    # Auto-generated dependencies for the Node.js backend.
-│
-├── package.json                     # Metadata and dependencies for Node.js environment.
-├── package-lock.json                # Exact dependency tree for reproducible installs.
-│
-├── server.js                        # Node.js backend for receiving and storing JSON mouse data.
-│
-├── requirements.txt                 # Installation requiremnets
-│
-└── README.md                        # Project documentation.
+├── package-lock.json                             # Lock file that pins exact versions of npm packages
+├── package.json                                  # Defines Node.js dependencies (used for server + frontend)
+├── README.md                                     # Project documentation and usage instructions
+├── requirements.txt                              # Python dependencies used across scripts and models
+└── server.js                                     # Node.js server for capturing and storing mouse data (JSON)
+
 ```
 
 ## Installation

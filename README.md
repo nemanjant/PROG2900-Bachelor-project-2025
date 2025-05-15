@@ -80,7 +80,7 @@ cd PROG2900-Bachelor-project-2025
 ```
 
 ### 2. Install dependencies:
-Ensure you have Node.js and Python installed. Then, run:
+Ensure you have Node.js and Python 3.11 installed. Then, run:
 ```
 npm install
 pip install -r requirements.txt

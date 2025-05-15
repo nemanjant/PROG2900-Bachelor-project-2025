@@ -28,6 +28,8 @@ A total of 700 mouse movement samples were collected in a controlled experiment.
 
 ## Repository Structure
 
+The Repository Structure section outlines the organization of all project files, including scripts for classical and deep learning models, raw mouse movement data, visualization tools, and the web-based data collection system.
+
 ```
 PROG2900-Bachelor-project-2025/
 ├── classical_model_training/        # Python scripts for training and evaluating the Random Forest model.

@@ -28,7 +28,7 @@ A total of 700 mouse movement samples were collected in a controlled experiment.
 
 ## Repository Structure
 
-<details>
+```
 PROG2900-Bachelor-project-2025/
 ├── classical_model_training/        # Python scripts for training and evaluating the Random Forest model.
 │   ├── train_random_forest.py       # Baseline RF classifier with train/test split.
@@ -64,5 +64,5 @@ PROG2900-Bachelor-project-2025/
 │
 ├── server.js                        # Node.js backend for receiving and storing JSON mouse data.
 │
-└── README.md                        # Project documentation (you are here).
-</details>
+└── README.md                        # Project documentation.
+```

@@ -38,10 +38,10 @@ PROG2900-Bachelor-project-2025/
 │   └── utils_rf.py                  # Shared functions for feature loading and preprocessing.
 │
 ├── deep_learning_model_training/    # Deep learning pipeline using LSTM → GRU → Attention.
-│   ├── train_deep_model.py          # Main training script with 5-fold CV, callbacks, focal loss, etc.
+│   ├── train_deep_model.py          # Main training script with 5-fold CV, callbacks, focal loss.
 │   ├── model_definition.py          # Model architecture (sequence + meta-features).
 │   ├── data_loader.py               # Loads JSON, extracts features, sequences, and labels.
-│   └── evaluation_utils.py          # Functions for confusion matrix, ROC, training curves, etc.
+│   └── evaluation_utils.py          # Functions for confusion matrix, ROC, training curves.
 │
 ├── data/                            # Mouse movement dataset.
 │   ├── truthful/                    # 350 JSON files representing truthful responses.

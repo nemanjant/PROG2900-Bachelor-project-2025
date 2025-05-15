@@ -4,9 +4,9 @@ Author: Nemanja Tosic <br />
 Supervisor: Kiran Raja <br />
 Company: Mobai AS <br />
 
-Norwegian University of Science and Technology
-Department of Computer Science
-Gjøvik, Spring 2025
+**Norwegian University of Science and Technology** <br />
+Department of Computer Science <br />
+Gjøvik, Spring 2025 <br />
 
 ## Project Overview
 

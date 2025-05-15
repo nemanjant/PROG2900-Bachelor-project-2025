@@ -32,7 +32,7 @@ The Repository Structure section outlines the organization of all project files,
 
 ```
 PROG2900-Bachelor-project-2025/
-├── classical_model_training/        # Python scripts for training, evaluating the Random Forest model.
+├── classical_model_training/        # Python scripts for Random Forest model.
 │   ├── train_random_forest.py       # Baseline RF classifier with train/test split.
 │   ├── train_rf_5fold.py            # Stratified 5-fold cross-validation version of the RF model.
 │   └── utils_rf.py                  # Shared functions for feature loading and preprocessing.

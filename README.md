@@ -149,7 +149,7 @@ Raw (x, y) cursor paths were processed into standardized feature sets including 
   <img src="extra_img/classical_model_architecture.png" alt="Data Flow" width="90%" />
 </p>
 
-*Figure: Data processing and evaluation flow for the Random Forest model.*
+The diagram illustrates data processing and evaluation flow for the Random Forest model.
 
 ## Deep Learning Architecture
 
@@ -157,7 +157,7 @@ Raw (x, y) cursor paths were processed into standardized feature sets including 
   <img src="extra_img/dl_model_architecture.png" alt="Data Flow" width="90%" />
 </p>
 
-*Figure: Hybrid model combining LSTM, GRU, soft attention, and meta-feature fusion.*
+The diagram presents the hybrid model combining LSTM, GRU, soft attention, and meta-feature fusion.
 
 Evaluation included accuracy, recall, macro F1-score, ROC/AUC, and feature importance.
 

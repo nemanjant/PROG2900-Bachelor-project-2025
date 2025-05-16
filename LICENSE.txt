@@ -1,2 +1,0 @@
-This project is licensed for academic and non-commercial use only.
-Please credit the author (Nemanja Tosic) and NTNU if reused.

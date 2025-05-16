@@ -143,13 +143,17 @@ Raw (x, y) cursor paths were processed into standardized feature sets including 
 
 - **Classical Model:** Random Forest on handcrafted features
 
-![Classical Model Architecture](extra_img/classical_model_architecture.png)
+<p align="center">
+  <img src="extra_img/classical_model_architecture.png" alt="Data Flow" width="90%" />
+</p>
 
 *Figure: Data processing and evaluation flow for the Random Forest model.*
 
 - **Deep Learning Model:** LSTM + GRU + Attention, using both sequences and meta-features
 
-![Model Architecture](extra_img/dl_architecture.png)
+<p align="center">
+  <img src="extra_img/dl_model_architecture.png" alt="Data Flow" width="90%" />
+</p>
 
 *Figure: Hybrid model combining LSTM, GRU, soft attention, and meta-feature fusion.*
 

@@ -34,7 +34,6 @@ Gjøvik, Spring 2025
 This repository contains all code and data for the bachelor thesis *"Cursor Dynamics for Deception Detection"*. The study explores whether deceptive intent can be detected from subtle variations in mouse movement behavior during binary question answering. Two modeling approaches were developed: a classical Random Forest model based on handcrafted features, and a deep learning model combining LSTM, GRU, and attention mechanisms.
 
 ---
-<br />
 ## Repository Structure
 
 ```
@@ -51,7 +50,7 @@ PROG2900-Bachelor-project-2025/
 ```
 
 ---
-<br />
+
 ## Installation
 
 ### 1. Clone the repository
@@ -68,7 +67,7 @@ pip install -r requirements.txt
 ```
 
 ---
-<br />
+
 ## Usage
 
 ### Data Collection (optional)
@@ -98,7 +97,7 @@ python labeling_data_training.py
 ```
 Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
 
-<br />
+
 ### Model Training
 
 #### Classical Model (Random Forest)
@@ -119,7 +118,7 @@ python deep_learning_model_training/model_training_lstm_gru_v2.py
 Models are saved as `.h5` files with corresponding logs per fold.
 
 ---
-<br />
+
 ## Data
 
 The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35 participants. Each JSON file captures cursor movements, timestamps, and derived behavioral features:
@@ -137,12 +136,12 @@ The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35
 *Figure: Flow of mouse data from collection to JSON storage.*
 
 ---
-<br />
+
 ## Methodology
 
 Participants answered yes/no questions truthfully and deceitfully in a browser-based experiment. Mouse dynamics were recorded in real time using JavaScript and saved as JSON via a Node.js backend.
 
-Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.
+Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.<br />
 
 ## Classical Model Architecture
 
@@ -150,20 +149,20 @@ Raw (x, y) cursor paths were processed into standardized feature sets including 
   <img src="extra_img/classical_model_architecture.png" alt="Data Flow" width="90%" />
 </p>
 
-The diagram illustrates data processing and evaluation flow for the Random Forest model.
-<br />
+The diagram illustrates data processing and evaluation flow for the Random Forest model.<br />
+
 ## Deep Learning Architecture
 
 <p align="center">
   <img src="extra_img/dl_model_architecture.png" alt="Data Flow" width="90%" />
 </p>
 
-The diagram presents the hybrid model combining LSTM, GRU, soft attention, and meta-feature fusion.
+The diagram presents the hybrid model combining LSTM, GRU, soft attention, and meta-feature fusion.<br />
 
-Evaluation included accuracy, recall, macro F1-score, ROC/AUC, and feature importance.
+Evaluation included accuracy, recall, macro F1-score, ROC/AUC, and feature importance.<br />
 
 ---
-<br />
+
 ## Project Workflow
 
 ![Project Pipeline](extra_img/methodology_pipeline.png)

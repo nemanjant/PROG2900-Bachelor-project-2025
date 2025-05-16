@@ -127,10 +127,10 @@ The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35
 - **Behavioral:** `pausePoints`, `hesitation`, `hesitationLevel`, `totalTime`, `averageSpeed`
 - **Metadata:** `question`, `answer`, `label` (`0` = truthful, `1` = deceitful)
 
-**Data Flow**
+## Data Flow
 
 <p align="center">
-  <img src="extra_img/data_flow_diagram.png" alt="Data Flow" width="60%" />
+  <img src="extra_img/data_flow_diagram.png" alt="Data Flow" width="70%" />
 </p>
 
 ---

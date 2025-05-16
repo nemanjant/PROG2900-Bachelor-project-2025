@@ -130,7 +130,7 @@ The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35
 ## Data Flow
 
 <p align="center">
-  <img src="extra_img/data_flow_diagram.png" alt="Data Flow" width="70%" />
+  <img src="extra_img/data_flow_diagram.png" alt="Data Flow" width="80%" />
 </p>
 
 ---

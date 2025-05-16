@@ -11,7 +11,8 @@
 **Company:** Mobai AS  
 
 Norwegian University of Science and Technology  
-Department of Computer Science, Gjøvik — Spring 2025
+Department of Computer Science 
+Gjøvik, Spring 2025
 
 ---
 

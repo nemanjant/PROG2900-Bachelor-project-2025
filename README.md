@@ -15,7 +15,11 @@ Department of Computer Science, Gjøvik — Spring 2025
 
 ---
 
-## 📚 Table of Contents
+## GitHub Stats
+
+![Nemanja's GitHub stats](https://github-readme-stats.vercel.app/api?username=nemanjant&show_icons=true&theme=default&hide=prs)
+
+## Table of Contents
 - [Project Overview](#project-overview)
 - [Repository Structure](#repository-structure)
 - [Installation](#installation)
@@ -28,13 +32,13 @@ Department of Computer Science, Gjøvik — Spring 2025
 
 ---
 
-## 📖 Project Overview
+## Project Overview
 
 This repository contains all code and data for the bachelor thesis *"Cursor Dynamics for Deception Detection"*. The study explores whether deceptive intent can be detected from subtle variations in mouse movement behavior during binary question answering. Two modeling approaches were developed: a classical Random Forest model based on handcrafted features, and a deep learning model combining LSTM, GRU, and attention mechanisms.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 PROG2900-Bachelor-project-2025/
@@ -51,7 +55,7 @@ PROG2900-Bachelor-project-2025/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ### 1. Clone the repository
 ```bash
@@ -68,16 +72,16 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Usage
+## Usage
 
-### 📌 Data Collection (optional)
+### Data Collection (optional)
 To run the local web experiment:
 ```bash
 node server.js
 ```
 Mouse movement responses will be saved to `data/` as structured JSON files. After collection, sort files into `data/truthful/` and `data/deceitful/`.
 
-### 📊 Data Analysis
+### Data Analysis
 Use the scripts in `data_analysys_stats/utils/` to process and visualize data:
 ```bash
 # Generate summary statistics
@@ -97,7 +101,7 @@ python labeling_data_training.py
 ```
 Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
 
-### 🧠 Model Training
+### Model Training
 
 #### Classical Model (Random Forest)
 - **Baseline (80/20 split):**
@@ -118,7 +122,7 @@ Models are saved as `.h5` files with corresponding logs per fold.
 
 ---
 
-## 📁 Data
+## Data
 
 The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35 participants. Each JSON file captures cursor movements, timestamps, and derived behavioral features:
 
@@ -130,7 +134,7 @@ See `data/sample_schema.md` for full parameter details.
 
 ---
 
-## 🧪 Methodology
+## Methodology
 
 Participants answered yes/no questions truthfully and deceitfully in a browser-based experiment. Mouse dynamics were recorded in real time using JavaScript and saved as JSON via a Node.js backend.
 
@@ -143,7 +147,7 @@ Evaluation included accuracy, recall, macro F1-score, ROC/AUC, and feature impor
 
 ---
 
-## 📈 Results
+## Results
 
 | Model           | Accuracy | Macro F1 | AUC   |
 |----------------|----------|----------|-------|
@@ -156,19 +160,19 @@ Evaluation included accuracy, recall, macro F1-score, ROC/AUC, and feature impor
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 This project was part of a bachelor thesis and is not currently accepting contributions. However, feel free to explore, fork, or build upon it for educational or research purposes.
 
 ---
 
-## 📄 License
+## License
 
 This repository is open for academic and non-commercial use. For reuse or citation, please include a reference to the thesis author and NTNU.
 
 ---
 
-## 🔗 Thesis
+## Thesis
 
 This GitHub repository supports the bachelor thesis submitted to NTNU Gjøvik.  
 Repository URL:  

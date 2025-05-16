@@ -15,6 +15,7 @@ Gjøvik, Spring 2025 <br />
 - [Installation](#installation)
 - [Usage](#usage)
 - [Data](#data)
+- [Methodology](#methodology)
 - [Results](#results)
 - [Contributing](#contributing)
 - [License](#license)
@@ -192,5 +193,54 @@ python classical_model_training/model_training_rf_cv_fold.py
 Output is fold-wise accuracy, recall and  macro F1-score.
 
 All visualisations of classical model training are saved in `classical_model_training/classical_graph/`.
+
+## Data
+
+The dataset consists of 700 mouse movement samples collected from 35 participants at NTNU Gjøvik. Each participant answered binary "Yes"/"No" questions under both truthful and deceitful conditions, resulting in 350 truthful and 350 deceitful responses.
+
+Mouse movements were recorded using a custom web interface and saved as structured JSON files. Each file contains detailed information including:
+
+- Cursor positions over time (`mouseMovements`)
+- Timestamps for each recorded point (`timestamps`)
+- Calculated movement features such as:
+  - Velocity
+  - Acceleration
+  - Jerk
+  - Curvature
+- Contextual indicators like:
+  - Hesitation
+  - Pause events
+  - Total response time
+  - Time to first movement
+  - Label (`0` = truthful, `1` = deceitful)
+
+## Methodology
+
+This project investigates whether deceptive intent can be detected through mouse movement patterns using machine learning techniques. Data was collected through a custom-built browser-based experiment in which 35 student participants answered binary “Yes” or “No” questions under both truthful and deceitful conditions. Mouse cursor trajectories were recorded in real time using a JavaScript frontend and saved as structured JSON files by a Node.js backend.
+
+### Data Processing and Feature Extraction
+
+The recorded raw cursor data (x, y, timestamps) was processed to extract dynamic behavioral features including velocity, acceleration, jerk, and curvature. Additional contextual features—such as hesitation time, pause events, and total movement duration—were also computed. All features were standardized using z-score normalization. Each sample was converted into a fixed-size time-series matrix with corresponding meta-features and class labels (`0` = truthful, `1` = deceitful).
+
+### Modeling Approaches
+
+Two machine learning models were implemented:
+
+- **Classical Model**: A Random Forest classifier trained on handcrafted features derived from the movement data.
+- **Deep Learning Model**: A hybrid architecture combining LSTM and GRU layers with soft attention. This model accepted both the time-series sequence and the extracted meta-feature vector as input.
+
+Both models were trained and evaluated using **stratified 5-fold cross-validation** to ensure robustness and enable fair comparison.
+
+### Evaluation Strategy
+
+Model performance was assessed using multiple metrics, including:
+
+- Accuracy, Recall, and Macro F1-score
+- Confusion Matrix and ROC Curve
+- AUC Score and Feature Importance Analysis
+- Training/validation loss and Precision-Recall Curves
+
+These tools helped determine how well the models distinguished between truthful and deceitful responses based on cursor behavior.
+
 
 

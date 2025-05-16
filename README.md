@@ -165,9 +165,13 @@ Evaluation included accuracy, recall, macro F1-score, ROC/AUC, matrix correlatio
 
 ## Project Workflow
 
-![Project Pipeline](extra_img/methodology_pipeline.png)
+<p align="center">
+  <img src="extra_img/project_flow.png" alt="Data Flow" width="90%" />
+</p>
 
-*Figure: Overview of data collection, feature extraction, model training, and evaluation.*
+This diagram illustrates the end-to-end workflow of the project, starting from data collection and recording, through preprocessing and feature extraction, branching into both classical (Random Forest) and deep learning (LSTM-GRU-Attention) training pipelines, and culminating in a final comparative evaluation of model performance.
+
+The diagram summarizes data collection, feature extraction, model training, and evaluation.
 
 ---
 

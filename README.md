@@ -98,6 +98,7 @@ python labeling_data_training.py
 ```
 Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
 
+
 ### Model Training
 
 #### Classical Model (Random Forest)
@@ -142,7 +143,7 @@ The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35
 Participants answered yes/no questions truthfully and deceitfully in a browser-based experiment. Mouse dynamics were recorded in real time using JavaScript and saved as JSON via a Node.js backend.
 
 Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.
-
+<pre>
 ## Classical Model Architecture
 
 <p align="center">
@@ -150,7 +151,8 @@ Raw (x, y) cursor paths were processed into standardized feature sets including 
 </p>
 
 The diagram illustrates data processing and evaluation flow for the Random Forest model.
-
+</pre>
+<pre>
 ## Deep Learning Architecture
 
 <p align="center">
@@ -158,7 +160,7 @@ The diagram illustrates data processing and evaluation flow for the Random Fores
 </p>
 
 The diagram presents the hybrid model combining LSTM, GRU, soft attention, and meta-feature fusion.
-
+</pre>
 Evaluation included accuracy, recall, macro F1-score, ROC/AUC, and feature importance.
 
 ---

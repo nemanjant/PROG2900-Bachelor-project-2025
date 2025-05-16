@@ -65,19 +65,18 @@ Make sure you have Python 3.11 and Node.js installed:
 npm install
 pip install -r requirements.txt
 ```
-
 ---
 
 ## Usage
 
-### Data Collection (optional)
+### 1. Data Collection
 To run the local web experiment:
 ```bash
 node server.js
 ```
 Mouse movement responses will be saved to `data/` as structured JSON files. After collection, sort files into `data/truthful/` and `data/deceitful/`.
 
-### Data Analysis
+### 2. Data Analysis
 Use the scripts in `data_analysys_stats/utils/` to process and visualize data:
 ```bash
 # Generate summary statistics
@@ -98,7 +97,7 @@ python labeling_data_training.py
 Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
 
 
-### Model Training
+### 3. Model Training
 
 #### Classical Model (Random Forest)
 - **Baseline (80/20 split):**
@@ -127,13 +126,13 @@ The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35
 - **Behavioral:** `pausePoints`, `hesitation`, `hesitationLevel`, `totalTime`, `averageSpeed`
 - **Metadata:** `question`, `answer`, `label` (`0` = truthful, `1` = deceitful)
 
-## Data Flow
+### Data Flow
 
 <p align="center">
   <img src="extra_img/data_flow_diagram.png" alt="Data Flow" width="90%" />
 </p>
 
-*Figure: Flow of mouse data from collection to JSON storage.*
+The diagram shows the flow of mouse data from collection to JSON storage.
 
 ---
 
@@ -143,7 +142,7 @@ Participants answered yes/no questions truthfully and deceitfully in a browser-b
 
 Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.<br />
 
-### Classical Model Architecture**
+### Classical Model Architecture
 
 <p align="center">
   <img src="extra_img/classical_model_architecture.png" alt="Data Flow" width="90%" />

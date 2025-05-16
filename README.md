@@ -141,7 +141,7 @@ Participants answered yes/no questions truthfully and deceitfully in a browser-b
 
 Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.
 
-- **Classical Model:** Random Forest on handcrafted features
+## Classical Model Architecture
 
 <p align="center">
   <img src="extra_img/classical_model_architecture.png" alt="Data Flow" width="90%" />
@@ -149,13 +149,17 @@ Raw (x, y) cursor paths were processed into standardized feature sets including 
 
 *Figure: Data processing and evaluation flow for the Random Forest model.*
 
-- **Deep Learning Model:** LSTM + GRU + Attention, using both sequences and meta-features
+- **Classical Model:** Random Forest on handcrafted features
+
+## Deep Learning Architecture
 
 <p align="center">
   <img src="extra_img/dl_model_architecture.png" alt="Data Flow" width="90%" />
 </p>
 
 *Figure: Hybrid model combining LSTM, GRU, soft attention, and meta-feature fusion.*
+
+- **Deep Learning Model:** LSTM + GRU + Attention, using both sequences and meta-features
 
 Evaluation included accuracy, recall, macro F1-score, ROC/AUC, and feature importance.
 

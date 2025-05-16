@@ -15,10 +15,6 @@ Department of Computer Science, Gjøvik — Spring 2025
 
 ---
 
-## GitHub Stats
-
-![Nemanja's GitHub stats](https://github-readme-stats.vercel.app/api?username=nemanjant&show_icons=true&theme=default&hide=prs)
-
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Repository Structure](#repository-structure)
@@ -166,9 +162,15 @@ This project was part of a bachelor thesis and is not currently accepting contri
 
 ---
 
-## License
+## 📄 License
 
 This repository is open for academic and non-commercial use. For reuse or citation, please include a reference to the thesis author and NTNU.
+
+---
+
+## 📊 GitHub Stats
+
+![Nemanja's GitHub stats](https://github-readme-stats.vercel.app/api?username=nemanjant&show_icons=true&theme=default&hide=prs)
 
 ---
 

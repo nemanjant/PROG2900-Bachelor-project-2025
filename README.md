@@ -127,7 +127,9 @@ The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35
 - **Behavioral:** `pausePoints`, `hesitation`, `hesitationLevel`, `totalTime`, `averageSpeed`
 - **Metadata:** `question`, `answer`, `label` (`0` = truthful, `1` = deceitful)
 
-See `data/sample_schema.md` for full parameter details.
+![Data Flow](extra_img/data_flow_diagram.png)
+
+*Figure: Flow of mouse data from collection to JSON storage.*
 
 ---
 

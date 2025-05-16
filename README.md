@@ -20,13 +20,13 @@ Gjøvik, Spring 2025 <br />
 - [Contributing](#contributing)
 - [License](#license)
 
-
+---
 ## Project Overview
 
 This repository contains all data, scripts, and code associated with bachelor thesis titled *"Cursor Dynamics for Deception Detection"*. The study explores whether deceptive intent can be detected from subtle variations in mouse movement behavior during binary question answering. Two modeling approaches were investigated: a classical machine learning pipeline using Random Forest, and a deep learning architecture combining LSTM, GRU, and attention mechanisms.
 
 A total of 700 mouse movement samples were collected in a controlled experiment. Each sample was labeled as either **truthful** or **deceitful**, and analyzed using dynamic features such as velocity, acceleration, jerk, curvature, hesitation, pauses, and total movement time.
-
+---
 ## Repository Structure
 
 The Repository Structure section outlines the organization of all project files, including scripts for classical and deep learning models, raw mouse movement data, visualization tools, and the web-based data collection system.
@@ -91,7 +91,7 @@ PROG2900-Bachelor-project-2025/
 └── server.js                                     # Node.js server for capturing and storing mouse data (JSON)
 
 ```
-
+---
 ## Installation
 
 ### 1. Clone repository:
@@ -106,7 +106,7 @@ Ensure you have Node.js and Python 3.11 installed. Then, run:
 npm install
 pip install -r requirements.txt
 ```
-
+---
 ## Usage Instructions
 
 ### Collecting Data (Optional)
@@ -193,7 +193,7 @@ python classical_model_training/model_training_rf_cv_fold.py
 Output is fold-wise accuracy, recall and  macro F1-score.
 
 All visualisations of classical model training are saved in `classical_model_training/classical_graph/`.
-
+---
 ## Data
 
 The dataset consists of 700 mouse movement samples collected from 35 participants at NTNU Gjøvik. Each participant answered binary "Yes"/"No" questions under both truthful and deceitful conditions, resulting in 350 truthful and 350 deceitful responses.
@@ -213,7 +213,7 @@ Mouse movements were recorded using a custom web interface and saved as structur
   - Total response time
   - Time to first movement
   - Label (`0` = truthful, `1` = deceitful)
-
+---
 ## Methodology
 
 This project investigates whether deceptive intent can be detected through mouse movement patterns using machine learning techniques. Data was collected through a custom-built browser-based experiment in which 35 student participants answered binary “Yes” or “No” questions under both truthful and deceitful conditions. Mouse cursor trajectories were recorded in real time using a JavaScript frontend and saved as structured JSON files by a Node.js backend.
@@ -241,6 +241,6 @@ Model performance was assessed using multiple metrics, including:
 - Training/validation loss and Precision-Recall Curves
 
 These tools helped determine how well the models distinguished between truthful and deceitful responses based on cursor behavior.
-
+---
 
 

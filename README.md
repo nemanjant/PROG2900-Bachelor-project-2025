@@ -26,6 +26,7 @@ Gjøvik, Spring 2025 <br />
 This repository contains all data, scripts, and code associated with bachelor thesis titled *"Cursor Dynamics for Deception Detection"*. The study explores whether deceptive intent can be detected from subtle variations in mouse movement behavior during binary question answering. Two modeling approaches were investigated: a classical machine learning pipeline using Random Forest, and a deep learning architecture combining LSTM, GRU, and attention mechanisms.
 
 A total of 700 mouse movement samples were collected in a controlled experiment. Each sample was labeled as either **truthful** or **deceitful**, and analyzed using dynamic features such as velocity, acceleration, jerk, curvature, hesitation, pauses, and total movement time.
+
 ---
 ## Repository Structure
 
@@ -193,6 +194,7 @@ python classical_model_training/model_training_rf_cv_fold.py
 Output is fold-wise accuracy, recall and  macro F1-score.
 
 All visualisations of classical model training are saved in `classical_model_training/classical_graph/`.
+
 ---
 ## Data
 
@@ -241,6 +243,7 @@ Model performance was assessed using multiple metrics, including:
 - Training/validation loss and Precision-Recall Curves
 
 These tools helped determine how well the models distinguished between truthful and deceitful responses based on cursor behavior.
+
 ---
 
 

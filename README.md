@@ -1,15 +1,16 @@
-# 🎓 PROG2900 - Bachelor Thesis Project #
-Title: Cursor Dynamics for Deception Detection <br />
-Author: Nemanja Tosic <br />
-Supervisor: Kiran Raja <br />
-Company: Mobai AS <br />
 
-Norwegian University of Science and Technology <br />
-Department of Computer Science <br />
-Gjøvik, Spring 2025 <br />
+# 🎓 PROG2900 - Bachelor Thesis Project
+**Title:** Cursor Dynamics for Deception Detection  
+**Author:** Nemanja Tosic  
+**Supervisor:** Kiran Raja  
+**Company:** Mobai AS  
 
-## Table of Contents
+Norwegian University of Science and Technology  
+Department of Computer Science, Gjøvik — Spring 2025
 
+---
+
+## 📚 Table of Contents
 - [Project Overview](#project-overview)
 - [Repository Structure](#repository-structure)
 - [Installation](#installation)
@@ -21,229 +22,152 @@ Gjøvik, Spring 2025 <br />
 - [License](#license)
 
 ---
-## Project Overview
 
-This repository contains all data, scripts, and code associated with bachelor thesis titled *"Cursor Dynamics for Deception Detection"*. The study explores whether deceptive intent can be detected from subtle variations in mouse movement behavior during binary question answering. Two modeling approaches were investigated: a classical machine learning pipeline using Random Forest, and a deep learning architecture combining LSTM, GRU, and attention mechanisms.
+## 📖 Project Overview
 
-A total of 700 mouse movement samples were collected in a controlled experiment. Each sample was labeled as either **truthful** or **deceitful**, and analyzed using dynamic features such as velocity, acceleration, jerk, curvature, hesitation, pauses, and total movement time.
+This repository contains all code and data for the bachelor thesis *"Cursor Dynamics for Deception Detection"*. The study explores whether deceptive intent can be detected from subtle variations in mouse movement behavior during binary question answering. Two modeling approaches were developed: a classical Random Forest model based on handcrafted features, and a deep learning model combining LSTM, GRU, and attention mechanisms.
 
 ---
-## Repository Structure
 
-The Repository Structure section outlines the organization of all project files, including scripts for classical and deep learning models, raw mouse movement data, visualization tools, and the web-based data collection system.
+## 📁 Repository Structure
 
 ```
 PROG2900-Bachelor-project-2025/
-├── classical_model_training/                      # Classical machine learning pipeline (Random Forest)
-│   ├── classical_graph/                           # Visualizations specific to classical model results
-│   │   └── ...                                     # (e.g., confusion matrix, feature importance plots)
-│   ├── model_training_rf_cv_fold.py               # Random Forest model with Stratified K-Fold CV
-│   └── model_training_rf_v1.py                    # Baseline Random Forest model
-│
-├── data/                                          # Raw mouse movement data organized by class
-│   ├── deceitful/                                 # 350 JSON samples representing deceptive responses
-│   │   └── ...                                     # Individual participant trials (JSON format)
-│   └── truthful/                                  # 350 JSON samples representing truthful responses
-│       └── ...                                     # Same structure as above
-│
-├── data_analysys_stats/                           # Scripts and data for exploratory data analysis and statistics
-│   ├── averaged_data/                             # Precomputed average trajectories and stats per class
-│   │   ├── deceitful_averaged_result_interpolated.json      # Interpolated average trajectory for deceitful
-│   │   ├── deceitful_mouse_stats_summary.json               # Summary stats for deceitful mouse behavior
-│   │   ├── truthful_averaged_result_interpolated.json       # Interpolated average trajectory for truthful
-│   │   └── truthful_mouse_stats_summary.json                # Summary stats for truthful mouse behavior
-│   ├── graph_charts/                              # Exported visual plots
-│   │   └── ...                                     # Graphs for speed, acceleration, jerk, etc.
-│   └── utils/                                     # Python scripts for generating stats and charts
-│       ├── acj_interpolation_plot.py              # Generates acceleration/curvature/jerk trajectory plots
-│       ├── acj_plot_graphs.py                     # Draws values as separate time-series plots
-│       ├── average_mouse_pattern_graphs.py        # Plots average paths for each class
-│       ├── average_mouse_stats_chart.py           # Bar charts of avg. movement features per class
-│       ├── average_mouse_stats.py                 # Calculates summary statistics from JSON
-│       ├── jspk_plot_graphs.py                    # Plots jerk spike patterns
-│       └── labeling_data_training.py              # Helper script for tagging samples with class labels
-│
-├── deep_learning_model_training/                  # Deep learning model training (LSTM + GRU + Attention)
-│   ├── best_dl/                                   # Saved best-performing model version and metadata
-│   │   └── ...                                     # Could include architecture visualizations, checkpoints
-│   ├── export_training_log_table.py              # Exports all training metrics (acc, F1, etc.) into a CSV
-│   ├── model_fold_1.h5                            # Trained model for Fold 1 (Keras HDF5 format)
-│   ├── model_fold_2.h5                            # Trained model for Fold 2
-│   ├── model_fold_3.h5                            # Trained model for Fold 3
-│   ├── model_fold_4.h5                            # Trained model for Fold 4
-│   ├── model_fold_5.h5                            # Trained model for Fold 5
-│   ├── model_training_lstm_gru_v1.py             # Version 1: Deep model training script with fixed setup
-│   ├── model_training_lstm_gru_v2.py             # Version 2: More advanced DL training (e.g., attention, callbacks)
-│   ├── training_log_fold_1.csv                   # Training history: accuracy, F1, loss (Fold 1)
-│   ├── training_log_fold_2.csv
-│   ├── training_log_fold_3.csv
-│   ├── training_log_fold_4.csv
-│   └── training_log_fold_5.csv
-│
-├── public/                                       # Web interface frontend for data collection (browser)
-│   ├── index.html                                 # Static HTML page with question interface
-│   ├── script.js                                  # JavaScript for mouse tracking and interaction
-│   └── styles.css                                 # Basic CSS styling for the UI
-│
-├── package-lock.json                             # Lock file that pins exact versions of npm packages
-├── package.json                                  # Defines Node.js dependencies (used for server + frontend)
-├── README.md                                     # Project documentation and usage instructions
-├── requirements.txt                              # Python dependencies used across scripts and models
-└── server.js                                     # Node.js server for capturing and storing mouse data (JSON)
-
+├── classical_model_training/         # Classical Random Forest models
+├── deep_learning_model_training/     # LSTM-GRU-Attention models and logs
+├── data/                             # Raw mouse movement JSON files
+├── data_analysys_stats/              # Visualization and statistical analysis scripts
+├── public/                           # Frontend UI for data collection
+├── server.js                         # Node.js backend for storing JSON data
+├── package.json / lock               # Node.js config and dependencies
+├── requirements.txt                  # Python dependencies
+└── README.md                         # Project documentation (you are here)
 ```
+
 ---
-## Installation
 
-### 1. Clone repository:
-```
+## ⚙️ Installation
+
+### 1. Clone the repository
+```bash
 git clone https://github.com/nemanjant/PROG2900-Bachelor-project-2025.git
 cd PROG2900-Bachelor-project-2025
 ```
 
-### 2. Install dependencies:
-Ensure you have Node.js and Python 3.11 installed. Then, run:
-```
+### 2. Install dependencies
+Make sure you have Python 3.11 and Node.js installed:
+```bash
 npm install
 pip install -r requirements.txt
 ```
+
 ---
-## Usage Instructions
 
-### Collecting Data (Optional)
+## 🚀 Usage
 
-Run the Node.js backend. 
-```
+### 📌 Data Collection (optional)
+To run the local web experiment:
+```bash
 node server.js
 ```
-The backend saves mouse data to JSON files locally during the experiment. After collection, data needs to be sorted in two folders data/truthful and data/deceitful. Samples needs to be labeled.
+Mouse movement responses will be saved to `data/` as structured JSON files. After collection, sort files into `data/truthful/` and `data/deceitful/`.
 
-### Collected Data Analysis
+### 📊 Data Analysis
+Use the scripts in `data_analysys_stats/utils/` to process and visualize data:
+```bash
+# Generate summary statistics
+python average_mouse_stats.py
 
-This section explains how to generate visualizations and statistical summaries from collected data. All scripts below are located in `data_analysys_stats/utils/`. Before running them, ensure you have installed all required Python packages listed in `requirements.txt`.
+# Interpolate average cursor paths
+python average_mouse_pattern_graphs.py
 
-**1. Generate Summary Statistics**
+# Plot behavioral features
+python average_mouse_stats_chart.py
+python acj_plot_graphs.py
+python acj_interpolation_plot.py
+python jspk_plot_graphs.py
 
-Extract key behavioral metrics (e.g., hesitation, pause count, jerk spikes):
+# Add class labels for modeling
+python labeling_data_training.py
 ```
-python data_analysys_stats/utils/average_mouse_stats.py
-```
-This will produce `truthful_mouse_stats_summary.json` and `deceitful_mouse_stats_summary.json` loocated in: `data_analysys_stats/averaged_data/`.
+Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
 
-**2. Interpolate Average Movement Trajectories**
+### 🧠 Model Training
 
-Smooth and interpolate mean cursor paths for both classes:
-```
-python data_analysys_stats/utils/average_mouse_pattern_graphs.py
-```
-This generates `truthful_averaged_result_interpolated.json ` and  `deceitful_averaged_result_interpolated.json `.
-
-**3. Plot Average Movement Feature Charts**
-
-Compare high-level movement statistics across classes:
-```
-python data_analysys_stats/utils/average_mouse_stats_chart.py
-```
-
-**4. Plot Acceleration, Curvature, and Jerk Time-Series**
-
-For detailed temporal comparisons between truthful and deceitful responses:
-```
-python data_analysys_stats/utils/acj_plot_graphs.py
-python data_analysys_stats/utils/acj_interpolation_plot.py
+#### Classical Model (Random Forest)
+- **Baseline (80/20 split):**
+```bash
+python classical_model_training/model_training_rf_v1.py
 ```
 
-**5. Plot Jerk Spike Patterns**
-   
-Visualize frequency and intensity of motor conflict events (jerk):
-```
-python data_analysys_stats/utils/jspk_plot_graphs.py
-```
-
-**6. Label Training Samples**
-
-Add class labels (0 = truthful, 1 = deceitful) to JSON samples for model training:
-```
-python data_analysys_stats/utils/labeling_data_training.py
-```
-
-All generated visualizations are automatically saved to `data_analysys_stats/graph_charts/`.
-
-Make sure to verify the paths and JSON structure before running the scripts. These plots support both analysis and illustration of behavioral differences between truthful and deceitful responses.
-
-### Model Training
-
-This section describes how to train the classical Random Forest model and the deep learning LSTM-GRU-Attention model using the scripts provided in the `classical_model_training/` and `deep_learning_model_training/` directories.
-
-**Classical Machine Learning (Random Forest)**
-
-**1. Train/Test Split – Baseline Random Forest**
-
-Run the following script to train and evaluate a basic Random Forest model on an 80/20 data split:
-```
-python classical_model_training/model_training_rf_v2.py
-```
-Outputs are performance metrics printed in terminal and saved confusion matrix and feature importance plots.
-
-**2. Stratified 5-Fold Cross-Validation**
-
-Use this script to evaluate model robustness across 5 folds:
-```
+- **5-Fold Cross-Validation:**
+```bash
 python classical_model_training/model_training_rf_cv_fold.py
 ```
-Output is fold-wise accuracy, recall and  macro F1-score.
 
-All visualisations of classical model training are saved in `classical_model_training/classical_graph/`.
-
----
-## Data
-
-The dataset consists of 700 mouse movement samples collected from 35 participants at NTNU Gjøvik. Each participant answered binary "Yes"/"No" questions under both truthful and deceitful conditions, resulting in 350 truthful and 350 deceitful responses.
-
-Mouse movements were recorded using a custom web interface and saved as structured JSON files. Each file contains detailed information including:
-
-- Cursor positions over time (`mouseMovements`)
-- Timestamps for each recorded point (`timestamps`)
-- Calculated movement features such as:
-  - Velocity
-  - Acceleration
-  - Jerk
-  - Curvature
-- Contextual indicators like:
-  - Hesitation
-  - Pause events
-  - Total response time
-  - Time to first movement
-  - Label (`0` = truthful, `1` = deceitful)
----
-## Methodology
-
-This project investigates whether deceptive intent can be detected through mouse movement patterns using machine learning techniques. Data was collected through a custom-built browser-based experiment in which 35 student participants answered binary “Yes” or “No” questions under both truthful and deceitful conditions. Mouse cursor trajectories were recorded in real time using a JavaScript frontend and saved as structured JSON files by a Node.js backend.
-
-### Data Processing and Feature Extraction
-
-The recorded raw cursor data (x, y, timestamps) was processed to extract dynamic behavioral features including velocity, acceleration, jerk, and curvature. Additional contextual features—such as hesitation time, pause events, and total movement duration—were also computed. All features were standardized using z-score normalization. Each sample was converted into a fixed-size time-series matrix with corresponding meta-features and class labels (`0` = truthful, `1` = deceitful).
-
-### Modeling Approaches
-
-Two machine learning models were implemented:
-
-- **Classical Model**: A Random Forest classifier trained on handcrafted features derived from the movement data.
-- **Deep Learning Model**: A hybrid architecture combining LSTM and GRU layers with soft attention. This model accepted both the time-series sequence and the extracted meta-feature vector as input.
-
-Both models were trained and evaluated using **stratified 5-fold cross-validation** to ensure robustness and enable fair comparison.
-
-### Evaluation Strategy
-
-Model performance was assessed using multiple metrics, including:
-
-- Accuracy, Recall, and Macro F1-score
-- Confusion Matrix and ROC Curve
-- AUC Score and Feature Importance Analysis
-- Training/validation loss and Precision-Recall Curves
-
-These tools helped determine how well the models distinguished between truthful and deceitful responses based on cursor behavior.
+#### Deep Learning Model (LSTM-GRU-Attention)
+```bash
+python deep_learning_model_training/model_training_lstm_gru_v2.py
+```
+Models are saved as `.h5` files with corresponding logs per fold.
 
 ---
+
+## 📁 Data
+
+The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35 participants. Each JSON file captures cursor movements, timestamps, and derived behavioral features:
+
+- **Trajectory:** `mouseMovements`, `timestamps`, `velocity`, `acceleration`, `jerk`, `curvature`
+- **Behavioral:** `pausePoints`, `hesitation`, `hesitationLevel`, `totalTime`, `averageSpeed`
+- **Metadata:** `question`, `answer`, `label` (`0` = truthful, `1` = deceitful)
+
+See `data/sample_schema.md` for full parameter details.
+
+---
+
+## 🧪 Methodology
+
+Participants answered yes/no questions truthfully and deceitfully in a browser-based experiment. Mouse dynamics were recorded in real time using JavaScript and saved as JSON via a Node.js backend.
+
+Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.
+
+- **Classical Model:** Random Forest on handcrafted features
+- **Deep Learning Model:** LSTM + GRU + Attention, using both sequences and meta-features
+
+Evaluation included accuracy, recall, macro F1-score, ROC/AUC, and feature importance.
+
+---
+
+## 📈 Results
+
+| Model           | Accuracy | Macro F1 | AUC   |
+|----------------|----------|----------|-------|
+| Random Forest  | 58.6%    | 0.58     | 0.60  |
+| Deep Learning  | 62.1%    | 0.62     | 0.65  |
+
+- Deep learning outperformed classical model across most metrics
+- Jerk spikes, hesitation, and pause duration were among the top contributing features
+- ROC and PR curves, as well as training visualizations, are available in `graph_charts/` and `classical_graph/`
+
+---
+
+## 🤝 Contributing
+
+This project was part of a bachelor thesis and is not currently accepting contributions. However, feel free to explore, fork, or build upon it for educational or research purposes.
+
+---
+
+## 📄 License
+
+This repository is open for academic and non-commercial use. For reuse or citation, please include a reference to the thesis author and NTNU.
+
+---
+
+## 🔗 Thesis
+
+This GitHub repository supports the bachelor thesis submitted to NTNU Gjøvik.  
+Repository URL:  
+[https://github.com/nemanjant/PROG2900-Bachelor-project-2025](https://github.com/nemanjant/PROG2900-Bachelor-project-2025)
+
 
 

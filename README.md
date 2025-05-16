@@ -130,8 +130,10 @@ The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35
 ## Data Flow
 
 <p align="center">
-  <img src="extra_img/data_flow_diagram.png" alt="Data Flow" width="80%" />
+  <img src="extra_img/data_flow_diagram.png" alt="Data Flow" width="90%" />
 </p>
+
+*Figure: Flow of mouse data from collection to JSON storage.*
 
 ---
 
@@ -149,8 +151,6 @@ Raw (x, y) cursor paths were processed into standardized feature sets including 
 
 *Figure: Data processing and evaluation flow for the Random Forest model.*
 
-- **Classical Model:** Random Forest on handcrafted features
-
 ## Deep Learning Architecture
 
 <p align="center">
@@ -158,8 +158,6 @@ Raw (x, y) cursor paths were processed into standardized feature sets including 
 </p>
 
 *Figure: Hybrid model combining LSTM, GRU, soft attention, and meta-feature fusion.*
-
-- **Deep Learning Model:** LSTM + GRU + Attention, using both sequences and meta-features
 
 Evaluation included accuracy, recall, macro F1-score, ROC/AUC, and feature importance.
 

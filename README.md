@@ -220,6 +220,51 @@ The diagram summarizes data collection, feature extraction, model training, and 
 
 ---
 
+### Model Comparison
+
+To evaluate both approaches under consistent conditions, we used the same 5-fold stratified splits:
+
+- **Consistency:** Random Forest yielded higher macro F1 in 4 of 5 folds, demonstrating more stable performance across splits. The LSTM–GRU–Attention network achieved its highest score only in Fold 4.  
+- **Peak vs. Average:** Although the deep sequence model surpassed the classical baseline in its best fold (62.1 % vs. 58.6 % accuracy), its lower average highlights sensitivity to data partitioning.  
+- **Statistical Significance:** The paired t-test (p = 0.462) confirms no significant difference in average fold performance, suggesting comparable overall reliability.  
+- **Practical Guidance:** For consistent, reliable deployment, Random Forest may be preferable; when maximum accuracy is critical and ample data is available, the deep model offers higher peak performance.
+
+---  
+
+## Conclusions
+
+This study demonstrates that subtle differences in mouse cursor dynamics can provide meaningful signals of deceptive intent. Key findings include:
+
+- **Behavioral Indicators:** Deceptive responses tend to be faster overall, exhibit higher acceleration and jerk variability, and show increased curvature in the latter phase of movement. Truthful responses, by contrast, involve more pauses and hesitation events, suggesting more deliberate processing.
+- **Model Comparison:**  
+  - The classical Random Forest classifier delivered stable performance across all folds (≈57.7 % accuracy, 0.576 macro F1, 0.62 AUC), making it a reliable baseline.  
+  - The LSTM–GRU–Attention network achieved a higher peak performance in its best fold (62.1 % accuracy, 0.62 macro F1, 0.65 AUC) but was more sensitive to data splits.
+- **Practical Implications:** For applications requiring consistency and ease of deployment, the Random Forest approach is recommended. When aiming for maximum accuracy and sufficient training data is available, deep sequence models can yield superior peak results.
+
+**Future Work:**  
+1. **Data Expansion:** Collect larger and more diverse datasets to improve model generalization.  
+2. **Feature Fusion:** Combine cursor dynamics with other behavioral or physiological signals (e.g., keystroke timing, gaze tracking).  
+3. **Real-Time Detection:** Explore online prediction frameworks for real-time deception detection in interactive systems.
+
+---
+
+## References
+
+C. Mazza, M. Monaro, F. Burla, M. Colasanti, G. Orrù, S. Ferracuti, and P. Roma, “Use of mouse-tracking software to detect faking-good behavior on personality questionnaires: An explorative study,” *Scientific Reports*, vol. 10, p. 4835, 2020. doi:10.1038/s41598-020-61636-5. [Online]. Available: https://doi.org/10.1038/s41598-020-61636-5
+
+M. Pusara and C. E. Brodley, “User re-authentication via mouse movements,” in *Proceedings of the 2004 ACM Workshop on Visualization and Data Mining for Computer Security (VizSEC/DMSEC)*, Washington, DC, USA: ACM, 2004, pp. 1–8, isbn:1-58113-974-8. doi:10.1145/1029208.1029210. [Online]. Available: https://www.researchgate.net/publication/221325920
+
+P. Zimmermann, S. Guttormsen, B. Danuser, and P. Gomez, “Affective computing – a rationale for measuring mood with mouse and keyboard,” *International Journal of Occupational Safety and Ergonomics (JOSE)*, vol. 9, no. 4, pp. 539–551, 2003. doi:10.1080/10803548.2003.11076589. [Online]. Available: https://doi.org/10.1080/10803548.2003.11076589
+
+S. Khan, C. Devlen, M. Manno, and D. Hou, “Mouse dynamics behavioral biometrics: A survey,” *ACM Computing Surveys*, vol. 37, no. 4, Article 111, pp. 1–32, 2023. doi:10.48550/arXiv.2208.09061. [Online]. Available: https://doi.org/10.1145/3640311
+
+M. Zuckerman, B. M. DePaulo, and R. Rosenthal, “Verbal and nonverbal communication of deception,” in *Advances in Experimental Social Psychology*, L. Berkowitz, Ed., vol. 14, Academic Press, 1981, pp. 1–59. doi:10.1016/S0065-2601(08)60369-X
+
+M. Monaro, L. Gamberini, and G. Sartori, “Spotting faked identities via mouse dynamics using complex questions,” in *Proceedings of the British HCI 2018*, Belfast, UK: BCS Learning and Development Ltd., 2018, pp. 1–9. doi:10.14236/ewic/HCI2018.8. [Online]. Available: http://dx.doi.org/10.14236/ewic/HCI2018.8
+
+N. Siddiqui, R. Dave, M. Vanamala, and N. Seliya, “Machine and deep learning applications to mouse dynamics for continuous user authentication,” *Machine Learning and Knowledge Extraction*, vol. 4, no. 1, pp. 1–24, 2022. doi:https://doi.org/10.3390/make4020023. [Online]. Available: https://doi.org/10.48550/arXiv.2205.13646
+
+
 ## Contributing
 
 This project was part of a bachelor thesis and is not currently accepting contributions. However, feel free to explore, fork, or build upon it for educational or research purposes.

@@ -18,7 +18,7 @@ Gjøvik, Spring 2025
 
 ## Abstract
 
-This project looks at whether you can spot when someone’s lying by tracking tiny changes in their mouse movements while they answer yes/no questions. We built and tested two kinds of models—a Random Forest using hand-picked features and a combined LSTM-GRU network with attention—to see which one works better.
+This project looks at whether you can spot when someone’s lying by tracking tiny changes in their mouse movements while they answer "Yes" and "No" questions. Two kinds of models were build and tested —a Random Forest using hand-picked features and a combined LSTM-GRU network with attention—to see which one works better.
 
 ---
 
@@ -42,9 +42,9 @@ This project looks at whether you can spot when someone’s lying by tracking ti
 
 ---
 
-## Background
+## Problem Statement
 
-This repository hosts all code and data for the bachelor thesis *"Cursor Dynamics for Deception Detection"*. The study explores whether deceptive intent can be detected from mouse movement behavior, comparing a classical machine learning approach with a deep learning architecture.
+Detecting deception in real-time interactions is critical for enhancing security in online banking systems, fraud detection, and secure authentication processes. Traditional identity verification and fraud prevention methods—such as knowledge-based questions, one-time passwords, or physiological sensors—can be bypassed or require extra hardware. Mouse cursor dynamics provide a lightweight, non-intrusive behavioral biometric that captures subtle motor and cognitive signatures. By analyzing features like movement speed, acceleration, curvature, and hesitation, this study investigates whether deceptive intent during simple yes/no prompts can be inferred to bolster banking security and user authentication.
 
 ---
 

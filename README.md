@@ -18,11 +18,15 @@ Gjøvik, Spring 2025
 
 ## Abstract
 
+<br/>
+
 This project looks at whether you can spot when someone’s lying by tracking tiny changes in their mouse movements while they answer "Yes" and "No" questions. Two kinds of models were build and tested —a Random Forest using hand-picked features and a combined LSTM-GRU network with attention—to see which one works better.
 
 ---
 
 ## Table of Contents
+
+<br/>
 
 - [Background](#background)
 - [Repository Structure](#repository-structure)
@@ -43,6 +47,8 @@ This project looks at whether you can spot when someone’s lying by tracking ti
 ---
 
 ## Motivation
+
+<br/>
 
 Detecting deception in real-time interactions is critical for enhancing security in online banking systems, fraud detection, and secure authentication processes. Traditional identity verification and fraud prevention methods—such as knowledge-based questions, one-time passwords, or physiological sensors—can be bypassed or require extra hardware. Mouse cursor dynamics provide a lightweight, non-intrusive behavioral biometric that captures subtle motor and cognitive signatures. By analyzing features like movement speed, acceleration, curvature, and hesitation, this study investigates whether deceptive intent during simple yes/no prompts can be inferred to bolster banking security and user authentication.
 
@@ -71,6 +77,8 @@ PROG2900-Bachelor-project-2025/
 
 ## Installation
 
+<br/>
+
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/nemanjant/PROG2900-Bachelor-project-2025.git
@@ -86,6 +94,8 @@ pip install -r requirements.txt
 ---
 
 ## Usage
+
+<br/>
 
 ### 1. Data Collection
 To run the local web experiment:
@@ -113,6 +123,8 @@ python jspk_plot_graphs.py
 python labeling_data_training.py
 ```
 Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
+
+<br/>
 
 ### 3. Model Training
 
@@ -142,6 +154,8 @@ The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35
 - **Trajectory:** `mouseMovements`, `timestamps`, `velocity`, `acceleration`, `jerk`, `curvature`
 - **Behavioral:** `pausePoints`, `hesitation`, `hesitationLevel`, `totalTime`, `averageSpeed`
 - **Metadata:** `question`, `answer`, `label` (`0` = truthful, `1` = deceitful)
+
+<br/>
 
 ### Data Flow
 
@@ -180,6 +194,9 @@ The diagram illustrates data processing and evaluation flow for the Random Fores
 The diagram presents the hybrid model combining LSTM, GRU, soft attention, and meta-feature fusion.<br />
 
 ### 3. Evaluation
+
+<br/>
+
 Evaluation included accuracy, recall, macro F1-score, ROC/AUC, matrix correlations and feature importance.<br />
 
 ---

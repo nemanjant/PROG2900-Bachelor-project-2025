@@ -155,9 +155,13 @@ The diagram shows the flow of mouse data from collection to JSON storage.
 
 ## Methodology
 
+<br/>
+
 Participants answered yes/no questions truthfully and deceitfully in a browser-based experiment. Mouse dynamics were recorded in real time using JavaScript and saved as JSON via a Node.js backend. Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.<br />
 
 ### 1. Classical Model Architecture
+
+<br/>
 
 <p align="center">
   <img src="extra_img/classical_model_architecture.png" alt="Data Flow" width="90%" />
@@ -166,6 +170,8 @@ Participants answered yes/no questions truthfully and deceitfully in a browser-b
 The diagram illustrates data processing and evaluation flow for the Random Forest model.<br />
 
 ### 2. Deep Learning Architecture
+
+<br/>
 
 <p align="center">
   <img src="extra_img/dl_model_architecture.png" alt="Data Flow" width="90%" />
@@ -179,6 +185,8 @@ Evaluation included accuracy, recall, macro F1-score, ROC/AUC, matrix correlatio
 ---
 
 ## Project Workflow
+
+<br/>
 
 <p align="center">
   <img src="extra_img/project_flow.png" alt="Data Flow" width="90%" />
@@ -235,8 +243,6 @@ To evaluate both approaches under consistent conditions, we used the same 5-fold
 - **Practical Guidance:** For consistent, reliable deployment, Random Forest may be preferable. When maximum accuracy is critical and ample data is available, the deep model offers higher peak performance.
 
 ---  
-
-<br/>
 
 ## Conclusions
 

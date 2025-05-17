@@ -274,6 +274,8 @@ To evaluate both approaches under consistent conditions, we used the same 5-fold
 
 ## Conclusions
 
+<br/>
+
 This study demonstrates that subtle differences in mouse cursor dynamics can provide meaningful signals of deceptive intent. Key findings include:
 
 - **Behavioral Indicators:** Deceptive responses tend to be faster overall, exhibit higher acceleration and jerk variability, and show increased curvature in the latter phase of movement. Truthful responses, by contrast, involve more pauses and hesitation events, suggesting more deliberate processing.
@@ -290,6 +292,8 @@ This study demonstrates that subtle differences in mouse cursor dynamics can pro
 ---
 
 ## References
+
+<br/>
 
 - C. Mazza, M. Monaro, F. Burla, M. Colasanti, G. Orrù, S. Ferracuti, and P. Roma, “Use of mouse-tracking software to detect faking-good behavior on personality questionnaires: An explorative study,” *Scientific Reports*, vol. 10, p. 4835, 2020. doi:10.1038/s41598-020-61636-5. [Online]. Available: https://doi.org/10.1038/s41598-020-61636-5
 
@@ -309,11 +313,15 @@ This study demonstrates that subtle differences in mouse cursor dynamics can pro
 
 ## Contributing
 
+<br/>
+
 This project was part of a bachelor thesis and is not currently accepting contributions. However, feel free to explore, fork, or build upon it for educational or research purposes.
 
 ---
 
 ## License
+
+<br/>
 
 This repository is open for academic and non-commercial use. For reuse or citation, please include a reference to the thesis author and NTNU.
 
@@ -321,11 +329,15 @@ This repository is open for academic and non-commercial use. For reuse or citati
 
 ## GitHub Stats
 
+<br/>
+
 ![Nemanja's GitHub stats](https://github-readme-stats.vercel.app/api?username=nemanjant&show_icons=true&theme=default&hide=prs)
 
 ---
 
 ## Thesis
+
+<br/>
 
 This GitHub repository supports the bachelor thesis submitted to NTNU Gjøvik.  
 Repository URL:  

@@ -205,12 +205,21 @@ This diagram illustrates the end-to-end workflow of the project, starting from d
 
 ### Model Performance Summary
 
+
+<br/>
+
+<p align="center">
+
 | Model                                    | Accuracy | Macro F1 | AUC  |
 |------------------------------------------|----------|----------|------|
 | **Random Forest (Baseline)**             | 58.6 %   | 0.58     | 0.60 |
 | **Random Forest (5-Fold Average)**       | 57.7 %   | 0.576    | 0.62 |
 | **LSTM–GRU–Attention (5-Fold Average)**  | 54.4 %   | 0.55     | 0.57 |
 | **LSTM–GRU–Attention (Best Fold)**       | 62.1 %   | 0.62     | 0.65 |
+
+</p>
+
+<br/>
 
 - The Random Forest baseline achieves 58.6 % accuracy; across 5-fold CV it averaged 57.7 % accuracy, 0.576 macro F1, and 0.62 AUC.  
 - The LSTM–GRU–Attention model averaged 54.4 % accuracy, 0.55 macro F1, and 0.57 AUC across folds; its best fold reached 62.1 % accuracy, 0.62 macro F1, and 0.65 AUC.  

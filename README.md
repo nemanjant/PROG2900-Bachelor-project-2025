@@ -187,8 +187,6 @@ Evaluation included accuracy, recall, macro F1-score, ROC/AUC, matrix correlatio
 
 This diagram illustrates the end-to-end workflow of the project, starting from data collection and recording, through preprocessing and feature extraction, branching into both classical (Random Forest) and deep learning (LSTM-GRU-Attention) training pipelines, and culminating in a final comparative evaluation of model performance.
 
-The diagram summarizes data collection, feature extraction, model training, and evaluation.
-
 ---
 
 ## Results & Evaluation

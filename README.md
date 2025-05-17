@@ -56,6 +56,8 @@ Detecting deception in real-time interactions is critical for enhancing security
 
 ## Repository Structure
 
+<br/>
+
 <details>
 <summary>Click to expand repository layout</summary>
 
@@ -85,12 +87,17 @@ git clone https://github.com/nemanjant/PROG2900-Bachelor-project-2025.git
 cd PROG2900-Bachelor-project-2025
 ```
 
+<br/>
+
 ### 2. Install dependencies
 Make sure you have Python 3.11 and Node.js installed:
 ```bash
 npm install
 pip install -r requirements.txt
 ```
+
+<br/>
+
 ---
 
 ## Usage
@@ -103,6 +110,8 @@ To run the local web experiment:
 node server.js
 ```
 Mouse movement responses will be saved as structured JSON files. After collection, sort files into `data/truthful/` and `data/deceitful/`.
+
+<br/>
 
 ### 2. Data Analysis
 Use the scripts in `data_analysys_stats/utils/` to process and visualize data:
@@ -128,6 +137,8 @@ Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
 
 ### 3. Model Training
 
+<br/>
+
 #### Classical Model (Random Forest)
 - **Baseline (80/20 split):**
 ```bash
@@ -139,6 +150,8 @@ python classical_model_training/model_training_rf_v1.py
 python classical_model_training/model_training_rf_cv_fold.py
 ```
 
+<br/>
+
 #### Deep Learning Model (LSTM-GRU-Attention)
 ```bash
 python deep_learning_model_training/model_training_lstm_gru_v2.py
@@ -149,6 +162,8 @@ Models are saved as `.h5` files with corresponding logs per fold.
 
 ## Data
 
+<br/>
+
 The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35 participants. Each JSON file captures cursor movements, timestamps, and derived behavioral features:
 
 - **Trajectory:** `mouseMovements`, `timestamps`, `velocity`, `acceleration`, `jerk`, `curvature`
@@ -158,6 +173,8 @@ The dataset includes 700 samples (350 truthful, 350 deceitful) collected from 35
 <br/>
 
 ### Data Flow
+
+<br/>
 
 <p align="center">
   <img src="extra_img/data_flow_diagram.png" alt="Data Flow" width="90%" />
@@ -175,7 +192,7 @@ Participants answered yes/no questions truthfully and deceitfully in a browser-b
 
 <br/>
 
-### 1. Classical Model Architecture
+### Classical Model Architecture
 
 <br/>
 
@@ -187,7 +204,7 @@ The diagram illustrates data processing and evaluation flow for the Random Fores
 
 <br/>
 
-### 2. Deep Learning Architecture
+### Deep Learning Architecture
 
 <br/>
 
@@ -199,7 +216,7 @@ The diagram presents the hybrid model combining LSTM, GRU, soft attention, and m
 
 <br/>
 
-### 3. Evaluation
+### Evaluation
 
 <br/>
 

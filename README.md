@@ -18,7 +18,7 @@ Gjøvik, Spring 2025
 
 ## Abstract
 
-This project investigates whether deceptive intent can be inferred from subtle variations in mouse cursor dynamics during binary question answering. Two modeling strategies—a handcrafted-feature Random Forest and a hybrid LSTM-GRU-Attention network—are developed and compared to assess their effectiveness.
+This project looks at whether you can spot when someone’s lying by tracking tiny changes in their mouse movements while they answer yes/no questions. We built and tested two kinds of models—a Random Forest using hand-picked features and a combined LSTM-GRU network with attention—to see which one works better.
 
 ---
 
@@ -65,7 +65,6 @@ PROG2900-Bachelor-project-2025/
 ├── requirements.txt                  # Python dependencies
 └── README.md                         # Project documentation (you are here)
 ```
-
 </details>
 
 ---

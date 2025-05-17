@@ -196,12 +196,12 @@ The diagram summarizes data collection, feature extraction, model training, and 
 ### Collected Data Insights
 
 - **Trajectory Patterns:** Truthful paths are smoother and more direct, while deceptive responses exhibit greater curvature, longer detours, and spatial deviation.  
-- **Movement Duration:** Truthful trials averaged **2.48 s** compared to **2.07 s** for deceptive trials, indicating quicker termination of deceptive actions.  
+- **Movement Duration:** Truthful trials averaged 2.48 seconds compared to 2.07 seconds for deceptive trials, indicating quicker termination of deceptive actions.  
 - **Speed:** Average velocity was lower for truthful responses (355.7 px/s) than for deceptive ones (377.7 px/s), suggesting faster cursor motions when participants lied.  
 - **Acceleration:** Deceptive trajectories show higher acceleration peaks in the early phase and larger fluctuations throughout, whereas truthful movement accelerations stabilize more quickly.  
 - **Curvature:** Initial curvature is similar, but toward the end of the trajectory, deceptive paths curve more sharply, reflecting irregular directional changes.  
-- **Jerk & Spikes:** Deceptive trials produced roughly **12 jerk spikes** (vs. **6** in truthful), and peak jerk values were higher, indicating more abrupt motion changes.  
-- **Hesitation & Pauses:** Truthful responses had more hesitation events (3.23 vs. 2.53) and pauses (5.18 vs. 4.10), despite equal average pause duration (0.62 s), suggesting more deliberate processing when truthful.  
+- **Jerk & Spikes:** Deceptive trials produced roughly 12 jerk spikes (vs. 6 in truthful), and peak jerk values were higher, indicating more abrupt motion changes.  
+- **Hesitation & Pauses:** Truthful responses had more hesitation events (3.23 vs. 2.53) and pauses (5.18 vs. 4.10), despite equal average pause duration (0.62 seconds), suggesting more deliberate processing when truthful.  
 
 ---
 
@@ -227,7 +227,7 @@ To evaluate both approaches under consistent conditions, we used the same 5-fold
 - **Consistency:** Random Forest yielded higher macro F1 in 4 of 5 folds, demonstrating more stable performance across splits. The LSTM–GRU–Attention network achieved its highest score only in Fold 4.  
 - **Peak vs. Average:** Although the deep sequence model surpassed the classical baseline in its best fold (62.1 % vs. 58.6 % accuracy), its lower average highlights sensitivity to data partitioning.  
 - **Statistical Significance:** The paired t-test (p = 0.462) confirms no significant difference in average fold performance, suggesting comparable overall reliability.  
-- **Practical Guidance:** For consistent, reliable deployment, Random Forest may be preferable; when maximum accuracy is critical and ample data is available, the deep model offers higher peak performance.
+- **Practical Guidance:** For consistent, reliable deployment, Random Forest may be preferable. When maximum accuracy is critical and ample data is available, the deep model offers higher peak performance.
 
 ---  
 

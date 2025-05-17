@@ -1,8 +1,8 @@
 # 🎓 PROG2900 - Bachelor Thesis Project
 
-[![GitHub Repo Stars](https://img.shields.io/github/stars/nemanjant/PROG2900-Bachelor-project-2025?style=social)](https://github.com/nemanjant/PROG2900-Bachelor-project-2025)
-[![GitHub Forks](https://img.shields.io/github/forks/nemanjant/PROG2900-Bachelor-project-2025?style=social)](https://github.com/nemanjant/PROG2900-Bachelor-project-2025/fork)
-[![Last Commit](https://img.shields.io/github/last-commit/nemanjant/PROG2900-Bachelor-project-2025)](https://github.com/nemanjant/PROG2900-Bachelor-project-2025/commits/main)
+[![GitHub Repo Stars](https://img.shields.io/github/stars/nemanjant/PROG2900-Bachelor-project-2025?style=social)](https://github.com/nemanjant/PROG2900-Bachelor-project-2025)  
+[![GitHub Forks](https://img.shields.io/github/forks/nemanjant/PROG2900-Bachelor-project-2025?style=social)](https://github.com/nemanjant/PROG2900-Bachelor-project-2025/fork)  
+[![Last Commit](https://img.shields.io/github/last-commit/nemanjant/PROG2900-Bachelor-project-2025)](https://github.com/nemanjant/PROG2900-Bachelor-project-2025/commits/main)  
 [![License](https://img.shields.io/badge/license-Academic%20Use-blue.svg)](LICENSE)
 
 **Title:** Cursor Dynamics for Deception Detection  
@@ -11,32 +11,49 @@
 **Company:** Mobai AS  
 
 Norwegian University of Science and Technology  
-Department of Computer Science <br />
+Department of Computer Science  
 Gjøvik, Spring 2025
 
 ---
 
+## Abstract
+
+This project investigates whether deceptive intent can be inferred from subtle variations in mouse cursor dynamics during binary question answering. Two modeling strategies—a handcrafted-feature Random Forest and a hybrid LSTM-GRU-Attention network—are developed and compared to assess their effectiveness.
+
+---
+
 ## Table of Contents
-- [Project Overview](#project-overview)
+
+- [Background](#background)
 - [Repository Structure](#repository-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Data](#data)
 - [Methodology](#methodology)
-- [Results](#results)
+- [Classical Model Architecture](#classical-model-architecture)
+- [Deep Learning Architecture](#deep-learning-architecture)
+- [Project Workflow](#project-workflow)
+- [Results & Evaluation](#results--evaluation)
+- [Conclusions](#conclusions)
+- [References](#references)
 - [Contributing](#contributing)
 - [License](#license)
+- [GitHub Stats](#github-stats)
+- [Thesis](#thesis)
 
 ---
 
-## Project Overview
+## Background
 
-This repository contains all code and data for the bachelor thesis *"Cursor Dynamics for Deception Detection"*. The study explores whether deceptive intent can be detected from subtle variations in mouse movement behavior during binary question answering. Two modeling approaches were developed: a classical Random Forest model based on handcrafted features, and a deep learning model combining LSTM, GRU, and attention mechanisms.
+This repository hosts all code and data for the bachelor thesis *"Cursor Dynamics for Deception Detection"*. The study explores whether deceptive intent can be detected from mouse movement behavior, comparing a classical machine learning approach with a deep learning architecture.
 
 ---
+
 ## Repository Structure
 
-```
+<details>
+<summary>Click to expand repository layout</summary>
+
+```bash
 PROG2900-Bachelor-project-2025/
 ├── classical_model_training/         # Classical Random Forest models
 ├── deep_learning_model_training/     # LSTM-GRU-Attention models and logs

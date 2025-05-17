@@ -208,7 +208,17 @@ The diagram presents the hybrid model combining LSTM, GRU, soft attention, and m
 
 <br/>
 
-Evaluation included accuracy, recall, macro F1-score, ROC/AUC, matrix correlations and feature importance.<br />
+To thoroughly assess model performance and interpretability, we used a comprehensive set of evaluation measures:
+
+- **Accuracy:** Overall proportion of correct predictions across both classes.  
+- **Recall (Sensitivity):** Class-specific true positive rate for both truthful and deceitful classes.  
+- **Precision:** Proportion of positive predictions that are correct, highlighting the trade-off with recall.  
+- **Macro F1-Score:** Harmonic mean of precision and recall, averaged equally across classes to account for any imbalance.  
+- **ROC Curve & AUC:** Receiver Operating Characteristic curve and its area measure the model’s discrimination ability across classification thresholds.  
+- **Precision-Recall Curve & AP:** Illustrates precision vs. recall trade-offs, especially informative for imbalanced datasets.  
+- **Confusion Matrix:** Detailed breakdown of true/false positives and negatives to pinpoint specific error types.  
+- **Feature Importance:** Ranking of the top predictive features to support interpretability and behavioral insights.  
+- **Correlation Matrix:** Analysis of pairwise feature relationships to detect multicollinearity and guide feature selection.
 
 ---
 

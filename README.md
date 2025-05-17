@@ -173,6 +173,8 @@ The diagram shows the flow of mouse data from collection to JSON storage.
 
 Participants answered yes/no questions truthfully and deceitfully in a browser-based experiment. Mouse dynamics were recorded in real time using JavaScript and saved as JSON via a Node.js backend. Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.<br />
 
+<br/>
+
 ### 1. Classical Model Architecture
 
 <br/>
@@ -183,6 +185,8 @@ Participants answered yes/no questions truthfully and deceitfully in a browser-b
 
 The diagram illustrates data processing and evaluation flow for the Random Forest model.<br />
 
+<br/>
+
 ### 2. Deep Learning Architecture
 
 <br/>
@@ -192,6 +196,8 @@ The diagram illustrates data processing and evaluation flow for the Random Fores
 </p>
 
 The diagram presents the hybrid model combining LSTM, GRU, soft attention, and meta-feature fusion.<br />
+
+<br/>
 
 ### 3. Evaluation
 

@@ -190,9 +190,9 @@ This diagram illustrates the end-to-end workflow of the project, starting from d
 
 ## Results & Evaluation
 
-### Collected Data Insights
-
 <br/>
+
+### Collected Data Insights
 
 - **Trajectory Patterns:** Truthful paths are smoother and more direct, while deceptive responses exhibit greater curvature, longer detours, and spatial deviation.  
 - **Movement Duration:** Truthful trials averaged 2.48 seconds compared to 2.07 seconds for deceptive trials, indicating quicker termination of deceptive actions.  
@@ -201,6 +201,8 @@ This diagram illustrates the end-to-end workflow of the project, starting from d
 - **Curvature:** Initial curvature is similar, but toward the end of the trajectory, deceptive paths curve more sharply, reflecting irregular directional changes.  
 - **Jerk & Spikes:** Deceptive trials produced roughly 12 jerk spikes (vs. 6 in truthful), and peak jerk values were higher, indicating more abrupt motion changes.  
 - **Hesitation & Pauses:** Truthful responses had more hesitation events (3.23 vs. 2.53) and pauses (5.18 vs. 4.10), despite equal average pause duration (0.62 seconds), suggesting more deliberate processing when truthful.  
+
+<br/>
 
 ### Model Performance Summary
 
@@ -221,9 +223,9 @@ This diagram illustrates the end-to-end workflow of the project, starting from d
 - The LSTM–GRU–Attention model averaged 54.4 % accuracy, 0.55 macro F1, and 0.57 AUC across folds; its best fold reached 62.1 % accuracy, 0.62 macro F1, and 0.65 AUC.<br/>
 - A paired t-test on the five macro F1 scores (p = 0.462) indicates no statistically significant difference in overall performance.<br/>
 
-### Model Comparison
-
 <br/>
+
+### Model Comparison
 
 To evaluate both approaches under consistent conditions, we used the same 5-fold stratified splits:
 
@@ -233,6 +235,8 @@ To evaluate both approaches under consistent conditions, we used the same 5-fold
 - **Practical Guidance:** For consistent, reliable deployment, Random Forest may be preferable. When maximum accuracy is critical and ample data is available, the deep model offers higher peak performance.
 
 ---  
+
+<br/>
 
 ## Conclusions
 

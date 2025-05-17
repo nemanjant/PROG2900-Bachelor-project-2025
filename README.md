@@ -192,6 +192,8 @@ This diagram illustrates the end-to-end workflow of the project, starting from d
 
 ### Collected Data Insights
 
+<br/>
+
 - **Trajectory Patterns:** Truthful paths are smoother and more direct, while deceptive responses exhibit greater curvature, longer detours, and spatial deviation.  
 - **Movement Duration:** Truthful trials averaged 2.48 seconds compared to 2.07 seconds for deceptive trials, indicating quicker termination of deceptive actions.  
 - **Speed:** Average velocity was lower for truthful responses (355.7 px/s) than for deceptive ones (377.7 px/s), suggesting faster cursor motions when participants lied.  
@@ -220,6 +222,8 @@ This diagram illustrates the end-to-end workflow of the project, starting from d
 - A paired t-test on the five macro F1 scores (p = 0.462) indicates no statistically significant difference in overall performance.<br/>
 
 ### Model Comparison
+
+<br/>
 
 To evaluate both approaches under consistent conditions, we used the same 5-fold stratified splits:
 

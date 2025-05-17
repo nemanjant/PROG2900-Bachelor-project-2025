@@ -66,6 +66,8 @@ PROG2900-Bachelor-project-2025/
 └── README.md                         # Project documentation (you are here)
 ```
 
+</details>
+
 ---
 
 ## Installation

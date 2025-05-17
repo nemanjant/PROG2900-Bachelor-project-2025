@@ -92,7 +92,7 @@ To run the local web experiment:
 ```bash
 node server.js
 ```
-Mouse movement responses will be saved to `data/` as structured JSON files. After collection, sort files into `data/truthful/` and `data/deceitful/`.
+Mouse movement responses will be saved as structured JSON files. After collection, sort files into `data/truthful/` and `data/deceitful/`.
 
 ### 2. Data Analysis
 Use the scripts in `data_analysys_stats/utils/` to process and visualize data:
@@ -156,9 +156,7 @@ The diagram shows the flow of mouse data from collection to JSON storage.
 
 ## Methodology
 
-Participants answered yes/no questions truthfully and deceitfully in a browser-based experiment. Mouse dynamics were recorded in real time using JavaScript and saved as JSON via a Node.js backend.
-
-Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.<br />
+Participants answered yes/no questions truthfully and deceitfully in a browser-based experiment. Mouse dynamics were recorded in real time using JavaScript and saved as JSON via a Node.js backend. Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.<br />
 
 ### 1. Classical Model Architecture
 
@@ -193,16 +191,27 @@ The diagram summarizes data collection, feature extraction, model training, and 
 
 ---
 
-## Results
+## Results & Evaluation
 
-| Model           | Accuracy | Macro F1 | AUC   |
-|----------------|----------|----------|-------|
-| Random Forest  | 58.6%    | 0.58     | 0.60  |
-| Deep Learning  | 62.1%    | 0.62     | 0.65  |
+### Collected Data Insights
 
-- Deep learning outperformed classical model across most metrics
-- Jerk spikes, hesitation, and pause duration were among the top contributing features
-- ROC and PR curves, as well as training visualizations, are available in `graph_charts/` and `classical_graph/`
+- **Trajectory Patterns:** Truthful mouse paths tended to be smoother and more direct, whereas deceptive responses showed greater curvature and spatial deviation.  
+- **Timing & Speed:** On average, truthful trials took 2.48 s vs. 2.07 s for deceptive ones; deceptive movements were slightly faster (377.7 px/s vs. 355.7 px/s).  
+- **Variability & Jerk:** Deceptive trials produced more jerk spikes (≈12 vs. ≈6) and exhibited larger acceleration fluctuations, suggesting more abrupt motion adjustments.
+
+---
+
+### Model Performance Summary
+
+| Model                                  | Accuracy | Macro F1 | AUC  |
+|----------------------------------------|----------|----------|------|
+| **Random Forest (Baseline)**           | 58.6 %   | 0.58     | 0.62 |
+| **LSTM–GRU–Attention (5-Fold Average)** | 54.4 %   | 0.55     | 0.57 |
+| **LSTM–GRU–Attention (Best Fold)**     | 62.1 %   | 0.62     | 0.65 |
+
+- The classical Random Forest model provides a solid baseline with moderate discriminative power.  
+- The deep sequence model achieved its highest scores in Fold 4, but averaged lower stability across all folds.  
+- A paired t-test on the five macro F1 scores (p = 0.462) shows no statistically significant difference in overall fold performance.
 
 ---
 

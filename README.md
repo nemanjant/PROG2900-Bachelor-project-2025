@@ -42,7 +42,7 @@ This project looks at whether you can spot when someone’s lying by tracking ti
 
 ---
 
-## Problem Statement
+## Motivation
 
 Detecting deception in real-time interactions is critical for enhancing security in online banking systems, fraud detection, and secure authentication processes. Traditional identity verification and fraud prevention methods—such as knowledge-based questions, one-time passwords, or physiological sensors—can be bypassed or require extra hardware. Mouse cursor dynamics provide a lightweight, non-intrusive behavioral biometric that captures subtle motor and cognitive signatures. By analyzing features like movement speed, acceleration, curvature, and hesitation, this study investigates whether deceptive intent during simple yes/no prompts can be inferred to bolster banking security and user authentication.
 

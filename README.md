@@ -313,7 +313,7 @@ This study demonstrates that subtle differences in mouse cursor dynamics can pro
 
 - S. Khan, C. Devlen, M. Manno, and D. Hou, “Mouse dynamics behavioral biometrics: A survey,” *ACM Computing Surveys*, vol. 37, no. 4, Article 111, pp. 1–32, 2023. doi:10.48550/arXiv.2208.09061. [Online]. Available: https://doi.org/10.1145/3640311
 
-- M. Zuckerman, B. M. DePaulo, and R. Rosenthal, “Verbal and nonverbal communication of deception,” in *Advances in Experimental Social Psychology*, L. Berkowitz, Ed., vol. 14, Academic Press, 1981, pp. 1–59. doi:10.1016/S0065-2601(08)60369-X
+- M. Zuckerman, B. M. DePaulo, and R. Rosenthal, “Verbal and nonverbal communication of deception,” in *Advances in Experimental Social Psychology*, L. Berkowitz, Ed., vol. 14, Academic Press, 1981, pp. 1–59.[Online]. Available: https://doi.org/10.1016/S0065-2601(08)60369-X
 
 - M. Monaro, L. Gamberini, and G. Sartori, “Spotting faked identities via mouse dynamics using complex questions,” in *Proceedings of the British HCI 2018*, Belfast, UK: BCS Learning and Development Ltd., 2018, pp. 1–9. doi:10.14236/ewic/HCI2018.8. [Online]. Available: http://dx.doi.org/10.14236/ewic/HCI2018.8
 

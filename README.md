@@ -87,16 +87,12 @@ git clone https://github.com/nemanjant/PROG2900-Bachelor-project-2025.git
 cd PROG2900-Bachelor-project-2025
 ```
 
-<br/>
-
 ### 2. Install dependencies
 Make sure you have Python 3.11 and Node.js installed:
 ```bash
 npm install
 pip install -r requirements.txt
 ```
-
-<br/>
 
 ---
 
@@ -110,8 +106,6 @@ To run the local web experiment:
 node server.js
 ```
 Mouse movement responses will be saved as structured JSON files. After collection, sort files into `data/truthful/` and `data/deceitful/`.
-
-<br/>
 
 ### 2. Data Analysis
 Use the scripts in `data_analysys_stats/utils/` to process and visualize data:
@@ -133,11 +127,7 @@ python labeling_data_training.py
 ```
 Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
 
-<br/>
-
 ### 3. Model Training
-
-<br/>
 
 #### Classical Model (Random Forest)
 - **Baseline (80/20 split):**
@@ -149,8 +139,6 @@ python classical_model_training/model_training_rf_v1.py
 ```bash
 python classical_model_training/model_training_rf_cv_fold.py
 ```
-
-<br/>
 
 #### Deep Learning Model (LSTM-GRU-Attention)
 ```bash

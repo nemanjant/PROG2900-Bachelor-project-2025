@@ -114,7 +114,6 @@ python labeling_data_training.py
 ```
 Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
 
-
 ### 3. Model Training
 
 #### Classical Model (Random Forest)
@@ -201,8 +200,6 @@ This diagram illustrates the end-to-end workflow of the project, starting from d
 - **Jerk & Spikes:** Deceptive trials produced roughly 12 jerk spikes (vs. 6 in truthful), and peak jerk values were higher, indicating more abrupt motion changes.  
 - **Hesitation & Pauses:** Truthful responses had more hesitation events (3.23 vs. 2.53) and pauses (5.18 vs. 4.10), despite equal average pause duration (0.62 seconds), suggesting more deliberate processing when truthful.  
 
----
-
 ### Model Performance Summary
 
 <br/>
@@ -221,8 +218,6 @@ This diagram illustrates the end-to-end workflow of the project, starting from d
 - The Random Forest baseline achieves 58.6 % accuracy; across 5-fold CV it averaged 57.7 % accuracy, 0.576 macro F1, and 0.62 AUC.<br/>
 - The LSTM–GRU–Attention model averaged 54.4 % accuracy, 0.55 macro F1, and 0.57 AUC across folds; its best fold reached 62.1 % accuracy, 0.62 macro F1, and 0.65 AUC.<br/>
 - A paired t-test on the five macro F1 scores (p = 0.462) indicates no statistically significant difference in overall performance.<br/>
-
----
 
 ### Model Comparison
 

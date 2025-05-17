@@ -195,9 +195,13 @@ The diagram summarizes data collection, feature extraction, model training, and 
 
 ### Collected Data Insights
 
-- **Trajectory Patterns:** Truthful mouse paths tended to be smoother and more direct, whereas deceptive responses showed greater curvature and spatial deviation.  
-- **Timing & Speed:** On average, truthful trials took 2.48 s vs. 2.07 s for deceptive ones; deceptive movements were slightly faster (377.7 px/s vs. 355.7 px/s).  
-- **Variability & Jerk:** Deceptive trials produced more jerk spikes (≈12 vs. ≈6) and exhibited larger acceleration fluctuations, suggesting more abrupt motion adjustments.
+- **Trajectory Patterns:** Truthful paths are smoother and more direct, while deceptive responses exhibit greater curvature, longer detours, and spatial deviation.  
+- **Movement Duration:** Truthful trials averaged **2.48 s** compared to **2.07 s** for deceptive trials, indicating quicker termination of deceptive actions.  
+- **Speed:** Average velocity was lower for truthful responses (355.7 px/s) than for deceptive ones (377.7 px/s), suggesting faster cursor motions when participants lied.  
+- **Acceleration:** Deceptive trajectories show higher acceleration peaks in the early phase and larger fluctuations throughout, whereas truthful movement accelerations stabilize more quickly.  
+- **Curvature:** Initial curvature is similar, but toward the end of the trajectory, deceptive paths curve more sharply, reflecting irregular directional changes.  
+- **Jerk & Spikes:** Deceptive trials produced roughly **12 jerk spikes** (vs. **6** in truthful), and peak jerk values were higher, indicating more abrupt motion changes.  
+- **Hesitation & Pauses:** Truthful responses had more hesitation events (3.23 vs. 2.53) and pauses (5.18 vs. 4.10), despite equal average pause duration (0.62 s), suggesting more deliberate processing when truthful.  
 
 ---
 
@@ -213,7 +217,7 @@ The diagram summarizes data collection, feature extraction, model training, and 
 - The Random Forest baseline achieves 58.6 % accuracy; across 5-fold CV it averaged 57.7 % accuracy, 0.576 macro F1, and 0.62 AUC.  
 - The LSTM–GRU–Attention model averaged 54.4 % accuracy, 0.55 macro F1, and 0.57 AUC across folds; its best fold reached 62.1 % accuracy, 0.62 macro F1, and 0.65 AUC.  
 - A paired t-test on the five macro F1 scores (p = 0.462) indicates no statistically significant difference in overall performance.
-- 
+
 ---
 
 ## Contributing

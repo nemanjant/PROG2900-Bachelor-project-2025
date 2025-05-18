@@ -1,37 +1,37 @@
 # Updated script using Stratified K-Fold Cross-Validation (5 folds) with full PNG exports
 # Including: Confusion Matrix, ROC Curve, Calibration Curve, Precision-Recall Curve,
 # Training Curves (Loss & Accuracy), Feature Correlations, and Feature Importances
+
 import os
 import json
-import numpy as np  # type: ignore
-import pandas as pd  # type: ignore
-import matplotlib.pyplot as plt  # type: ignore
-import seaborn as sns  # type: ignore
-from scipy.stats import skew  # type: ignore
+import numpy as np  
+import pandas as pd  
+import matplotlib.pyplot as plt  
+import seaborn as sns 
+from scipy.stats import skew  
 
 
-from sklearn.model_selection import StratifiedKFold  # type: ignore
-from sklearn.metrics import ( # type: ignore
+from sklearn.model_selection import StratifiedKFold  
+from sklearn.metrics import (
     confusion_matrix, accuracy_score, roc_curve, auc,
     f1_score, precision_recall_curve, average_precision_score
-)  # type: ignore
-from sklearn.calibration import calibration_curve  # type: ignore
-from sklearn.preprocessing import StandardScaler  # type: ignore
+)  
+from sklearn.calibration import calibration_curve  
+from sklearn.preprocessing import StandardScaler  
 
-import tensorflow as tf  # type: ignore
-from tensorflow.keras.models import Model  # type: ignore
-from tensorflow.keras.layers import ( # type: ignore
+import tensorflow as tf  
+from tensorflow.keras.models import Model  
+from tensorflow.keras.layers import ( 
     Input, LSTM, GRU, Dense, Concatenate, Permute,
     Multiply, Dropout, LayerNormalization
-)  # type: ignore
-from tensorflow.keras.callbacks import ( # type: ignore
+)  
+from tensorflow.keras.callbacks import ( 
     EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
-)  # type: ignore
-from tensorflow.keras import regularizers  # type: ignore
+)  
+from tensorflow.keras import regularizers  
 import datetime
 
-# -- Data Loading & Preprocessing ------------------------------------------------
-
+# Data Loading & Preprocessing
 def load_json_data(base_path):
     X, y = [], []
     for label in ['truthful', 'deceitful']:
@@ -78,8 +78,7 @@ def preprocess_data(X_raw):
     X_meta = np.array([x[1] for x in X_raw], dtype='float32')
     return X_seq, X_meta
 
-# -- Loss & Model Definition ------------------------------------------------------
-
+# Loss & Model Definition
 def focal_loss(gamma=2., alpha=0.25):
     def loss(y_true, y_pred):
         bce = tf.keras.backend.binary_crossentropy(y_true, y_pred)
@@ -118,8 +117,7 @@ def build_model(input_seq_shape, input_meta_shape):
     )
     return model
 
-# -- Plotting & Saving Functions --------------------------------------------------
-
+# Plotting & Saving Functions
 def save_confusion_matrix(y_true, y_pred, fold):
     cm = confusion_matrix(y_true, y_pred)
     df_cm = pd.DataFrame(cm, index=['truthful','deceitful'], columns=['truthful','deceitful'])
@@ -197,8 +195,7 @@ def plot_training_history(history, fold):
     plt.savefig(f"training_validation_accuracy_fold_{fold}.png")
     plt.close()
 
-# -- Feature Correlation & Importance ---------------------------------------------
-
+#Feature Correlation & Importance
 def save_feature_correlations(X_meta, feature_names):
     df = pd.DataFrame(X_meta, columns=feature_names)
     corr = df.corr().abs()
@@ -233,8 +230,7 @@ def save_feature_importance(model, X_seq_val, X_meta_val, y_val, feature_names, 
     plt.savefig(f"feature_importance_fold_{fold}.png")
     plt.close()
 
-# -- Main Execution ----------------------------------------------------------------
-
+#Main Execution
 if __name__ == '__main__':
     run_id = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     X_raw, y = load_json_data('data')

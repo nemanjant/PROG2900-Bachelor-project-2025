@@ -3,35 +3,16 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Use default matplotlib style for consistency
 plt.style.use("default")
 
 
 def smooth(data, window_size=3):
-    """
-    Smooth the input data using a simple moving average.
 
-    Args:
-        data (list or ndarray): Sequence of numeric values to smooth.
-        window_size (int): Number of points to include in the moving average window.
-
-    Returns:
-        ndarray: Smoothed data array of the same length as input.
-    """
     # Create an averaging window and convolve with the data
     return np.convolve(data, np.ones(window_size) / window_size, mode='same')
 
 
 def plot_jerk_curve(jerks, label, line_color, output_path):
-    """
-    Plot the jerk time-series, highlight spikes above a dynamic threshold, and save to file.
-
-    Args:
-        jerks (list or ndarray): Time-series of jerk magnitudes.
-        label (str): Identifier for the data series (e.g., 'truthful', 'deceitful').
-        line_color (str): Color code for the jerk curve line.
-        output_path (str): File path where the plot image will be saved.
-    """
     # Smooth the raw jerk signal
     smoothed = smooth(jerks)
 
@@ -82,15 +63,12 @@ def plot_jerk_curve(jerks, label, line_color, output_path):
 
 
 def main():
-    """
-    Load averaged jerk data files for each label, generate plots, and save them.
-    """
     # Define input files and line colors per label
     inputs = {
-        "truthful": ("averaged_data/truthful_averaged_result_interpolated.json", "blue"),
-        "deceitful": ("averaged_data/deceitful_averaged_result_interpolated.json", "red"),
+        "truthful": ("data_analysys_stats/averaged_data/truthful_averaged_result_interpolated.json", "blue"),
+        "deceitful": ("data_analysys_stats/averaged_data/deceitful_averaged_result_interpolated.json", "red"),
     }
-    out_dir = "graph_charts"
+    out_dir = "data_analysys_stats/graph_charts"
     os.makedirs(out_dir, exist_ok=True)
 
     # Iterate through each label to process its data

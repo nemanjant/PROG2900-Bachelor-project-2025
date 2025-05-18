@@ -1,22 +1,8 @@
 import os
 import json
 
-# === Mouse Statistics Summaries Generator ===
-# This script processes raw mouse movement JSON data,
-# computes key summary statistics for two datasets ('truthful' and 'deceitful'),
-# and saves the results as JSON files in an output directory.
-
 
 def load_json_files(folder_path):
-    """
-    Load all JSON files from a specified folder.
-
-    Args:
-        folder_path (str): Path to the directory containing .json files.
-
-    Returns:
-        list: A list of dictionaries loaded from each JSON file.
-    """
     data = []
     # Iterate through all files in the folder
     for filename in os.listdir(folder_path):
@@ -28,25 +14,8 @@ def load_json_files(folder_path):
                 data.append(json.load(f))
     return data
 
-
+# Compute average values for iven parameters
 def compute_summary_stats(data):
-    """
-    Compute average statistics across all data entries.
-
-    Metrics calculated:
-      - averageTotalTime: mean of totalTime values
-      - averageSpeed: mean of averageSpeed values
-      - averageJerkSpikeCount: mean count of jerk spikes
-      - averageHesitation: mean hesitation measure
-      - averagePauseDuration: mean duration of all pauses
-      - averagePauseCount: mean number of pause points per entry
-
-    Args:
-        data (list): List of dictionaries, each representing one session's data.
-
-    Returns:
-        dict: A dictionary of computed average statistics.
-    """
     total_times = []
     speeds = []
     jerks = []
@@ -68,9 +37,6 @@ def compute_summary_stats(data):
             pause_durations.append(p.get('duration', 0))
 
     def safe_avg(arr):
-        """
-        Compute the average of a list, returning 0 for empty lists.
-        """
         return sum(arr) / len(arr) if arr else 0
 
     # Assemble the summary dictionary
@@ -85,28 +51,14 @@ def compute_summary_stats(data):
 
 
 def save_stats_to_json(stats, output_path):
-    """
-    Save statistics dictionary to a file in JSON format.
-
-    Args:
-        stats (dict): Summary statistics to save.
-        output_path (str): Path to the output JSON file.
-    """
     # Write the stats dict to a JSON file with indentation for readability
     with open(output_path, 'w') as f:
         json.dump(stats, f, indent=4)
 
 
 def main():
-    """
-    Main execution function:
-      1. Prepare input and output directories.
-      2. Load data for each dataset label.
-      3. Compute summary statistics.
-      4. Save summaries to JSON files.
-    """
     base_dir = 'data'
-    output_dir = 'averaged_data'
+    output_dir = 'data_analysys_stats/averaged_data'
 
     # Ensure the output directory exists, create if missing
     if not os.path.isdir(output_dir):

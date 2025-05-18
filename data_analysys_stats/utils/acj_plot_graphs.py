@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter1d
 
-# === Loaders ===
+# Loaders
 def load_array(filepath, key):
     with open(filepath, 'r') as f:
         data = json.load(f)
@@ -14,7 +14,7 @@ def load_mouse_movements(filepath):
         data = json.load(f)
     return np.array(data.get("mouseMovements", []))
 
-# === Plotters ===
+# Plotters
 def plot_series_comparison(series_lie, series_truth, title, ylabel, filename, sigma=2):
     min_len = min(len(series_lie), len(series_truth))
     x = np.arange(min_len)
@@ -51,22 +51,22 @@ def plot_mouse_path_comparison(path_lie, path_truth, filename):
     plt.savefig(filename)
     plt.show()
 
-# === Main ===
+# Main
 if __name__ == "__main__":
-    lie_file = "averaged_data/deceitful_averaged_result_interpolated.json"
-    truth_file = "averaged_data/truthful_averaged_result_interpolated.json"
+    lie_file = "data_analysys_stats/averaged_data/deceitful_averaged_result_interpolated.json"
+    truth_file = "data_analysys_stats/averaged_data/truthful_averaged_result_interpolated.json"
 
     # Acceleration
     lie_acc = load_array(lie_file, "accelerations")
     truth_acc = load_array(truth_file, "accelerations")
-    plot_series_comparison(lie_acc, truth_acc, "Acceleration", "Acceleration", "graph_charts/acceleration_comparison.png")
+    plot_series_comparison(lie_acc, truth_acc, "Acceleration", "Acceleration", "data_analysys_stats/graph_charts/acceleration_comparison.png")
 
     # Curvature
     lie_curv = load_array(lie_file, "curvatures")
     truth_curv = load_array(truth_file, "curvatures")
-    plot_series_comparison(lie_curv, truth_curv, "Curvature", "Curvature", "graph_charts/curvature_comparison.png")
+    plot_series_comparison(lie_curv, truth_curv, "Curvature", "Curvature", "data_analysys_stats/graph_charts/curvature_comparison.png")
 
     # Jerk
     lie_jerk = load_array(lie_file, "jerks")
     truth_jerk = load_array(truth_file, "jerks")
-    plot_series_comparison(lie_jerk, truth_jerk, "Jerk", "Jerk", "graph_charts/jerk_comparison.png")
+    plot_series_comparison(lie_jerk, truth_jerk, "Jerk", "Jerk", "data_analysys_stats/graph_charts/jerk_comparison.png")

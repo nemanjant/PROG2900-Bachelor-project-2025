@@ -33,14 +33,19 @@ let lastPosition = { x: 0, y: 0 };
 let lastTime = null;
 let isTracking = false;
 let sessionId = null;
+
 // Stores points where the mouse pauses
 let pausePoints = [];
+
 // Total hesitation time in seconds
 let hesitation = 0; 
+
 // Timestamp of the last mouse movement
 let lastMoveTime = null; 
+
 // Define max jerk threshold
 const MAX_JERK = 1000000;
+
 // Adjust the number of previous points used for smoothing
 const SMOOTHING_WINDOW = 3;
 
@@ -199,7 +204,7 @@ function trackMouse(event) {
       Math.pow(currentPosition.x - lastPosition.x, 2) + Math.pow(currentPosition.y - lastPosition.y, 2)
     );
 
-    if (distance < 2) { // Mouse barely moved → possible hesitation
+    if (distance < 2) { // Mouse barely moved, possible hesitation
       if (lastMoveTime === null) {
         lastMoveTime = currentTime; // Start of a pause
       } else {

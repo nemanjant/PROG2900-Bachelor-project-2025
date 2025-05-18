@@ -1,22 +1,23 @@
 # Updated script using Stratified K-Fold Cross-Validation (5 folds) with full PNG exports and feature importance
+
 import os
 import json
-import numpy as np # type: ignore
-import pandas as pd # type: ignore
-import matplotlib.pyplot as plt # type: ignore
-import seaborn as sns # type: ignore
+import numpy as np 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
 import datetime
-from scipy.stats import skew # type: ignore
+from scipy.stats import skew 
 
-from sklearn.model_selection import StratifiedKFold # type: ignore
-from sklearn.metrics import confusion_matrix, accuracy_score, roc_curve, auc, f1_score # type: ignore
-from sklearn.preprocessing import StandardScaler # type: ignore
+from sklearn.model_selection import StratifiedKFold 
+from sklearn.metrics import confusion_matrix, accuracy_score, roc_curve, auc, f1_score 
+from sklearn.preprocessing import StandardScaler 
 
-import tensorflow as tf # type: ignore
-from tensorflow.keras.models import Model # type: ignore
+import tensorflow as tf 
+from tensorflow.keras.models import Model 
 from tensorflow.keras.layers import Input, LSTM, GRU, Dense, Attention, Concatenate, Permute, Multiply, Dropout, LayerNormalization # type: ignore
-from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau # type: ignore
-from tensorflow.keras import regularizers # type: ignore
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau 
+from tensorflow.keras import regularizers 
 
 def load_json_data(base_path):
     X, y = [], []

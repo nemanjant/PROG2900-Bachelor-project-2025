@@ -4,11 +4,10 @@ import numpy as np
 from glob import glob
 from scipy.interpolate import CubicSpline
 
-# === Settings ===
+# Settings
 INTERPOLATION_POINTS = 100
 
-# === Helper Functions ===
-
+# Helper Functions
 def interpolate_to_fixed_length(array, target_len=INTERPOLATION_POINTS):
     if not array:
         return []
@@ -60,8 +59,7 @@ def normalize_jerks(jerks):
         return jerks
     return [j/abs_mean for j in jerks]
 
-# === Core averaging per-folder ===
-
+# Averaging per-folder
 def average_json_from_folder(folder_path, output_path):
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     json_files = glob(os.path.join(folder_path, "*.json"))
@@ -69,7 +67,7 @@ def average_json_from_folder(folder_path, output_path):
         print(f"No JSON files found in {folder_path}")
         return
 
-    # fields to aggregate
+    # fields to create
     numeric_fields = ["accelerations", "curvatures", "timestamps"]
     array_fields   = ["mouseMovements", "pausePoints"]
     scalar_fields  = ["totalTime", "averageSpeed", "jerkSpikeCount", "hesitation"]
@@ -117,8 +115,7 @@ def average_json_from_folder(folder_path, output_path):
 
     print(f"→ saved: {output_path}")
 
-# === Entry point ===
-
+# Entry point
 if __name__ == "__main__":
     # ensure averaged_data folder exists
     os.makedirs("averaged_data", exist_ok=True)
@@ -126,10 +123,10 @@ if __name__ == "__main__":
     # process both truthful and deceitful
     average_json_from_folder(
         folder_path="data/truthful",
-        output_path="averaged_data/truthful_averaged_result_interpolated.json"
+        output_path="data_analysys_stats/averaged_data/truthful_averaged_result_interpolated.json"
     )
     average_json_from_folder(
         folder_path="data/deceitful",
-        output_path="averaged_data/deceitful_averaged_result_interpolated.json"
+        output_path="data_analysys_stats/averaged_data/deceitful_averaged_result_interpolated.json"
     )
 

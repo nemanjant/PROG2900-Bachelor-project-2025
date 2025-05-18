@@ -50,7 +50,7 @@ def plot_metrics_comparison(lie_data, truth_data):
                     ha='center', va='bottom')
 
     plt.tight_layout()
-    plt.savefig("graph_charts/average_mouse_stats_chart_metrics.png")
+    plt.savefig("data_analysys_stats/graph_charts/average_mouse_stats_chart_metrics.png")
     plt.close()
 
 # Plot average speed separately
@@ -77,12 +77,12 @@ def plot_speed_comparison(lie_data, truth_data):
                     ha='center', va='bottom')
 
     plt.tight_layout()
-    plt.savefig("graph_charts/average_mouse_speed_chart.png")
+    plt.savefig("data_analysys_stats/graph_charts/average_mouse_speed_chart.png")
     plt.close()
 
 # === USAGE ===
-lie_file = "averaged_data/deceitful_mouse_stats_summary.json"
-truth_file = "averaged_data/truthful_mouse_stats_summary.json"
+lie_file = "data_analysys_stats/averaged_data/deceitful_mouse_stats_summary.json"
+truth_file = "data_analysys_stats/averaged_data/truthful_mouse_stats_summary.json"
 
 lie_metrics = load_summary_metrics(lie_file)
 truth_metrics = load_summary_metrics(truth_file)

@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import os
 
 def save_training_log_table_as_png(csv_path, output_path='training_table.png', title=None):
+    
     # Read training log CSV
     df = pd.read_csv(csv_path)
 
-    # Ensure expected columns exist
     expected_columns = ['loss', 'val_loss', 'accuracy', 'val_accuracy']
     if not all(col in df.columns for col in expected_columns):
         raise ValueError(f"CSV must contain columns: {expected_columns}")
@@ -33,7 +33,7 @@ def save_training_log_table_as_png(csv_path, output_path='training_table.png', t
     table.set_fontsize(9)
     table.scale(1, 1.5)
 
-    # Add title if given
+    # Add title
     if title:
         plt.title(title, fontsize=14, pad=20)
 

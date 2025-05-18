@@ -3,19 +3,11 @@ import glob
 import os
 
 # Paths to the folders containing the JSON response files
-truthful_folder = "data/truthful_responses/"
-deceptive_folder = "data/deceptive_responses/"
+truthful_folder = "data/truthful/"
+deceptive_folder = "data/deceitful/"
 
+# Label to assign 0 for truthful, 1 for deceptive
 def add_labels_to_json_files(folder, label):
-    """
-    Iterate through all JSON files in the given folder,
-    add a 'label' key to each JSON object with the provided label,
-    and overwrite the file with the updated content.
-
-    Args:
-        folder (str): Path to the folder containing JSON files.
-        label (int): Label to assign (e.g., 0 for truthful, 1 for deceptive).
-    """
     # Glob all .json files in the specified folder
     file_pattern = os.path.join(folder, "*.json")
     files = glob.glob(file_pattern)

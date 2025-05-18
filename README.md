@@ -124,6 +124,10 @@ python jspk_plot_graphs.py
 
 # Add class labels for modeling
 python labeling_data_training.py
+
+# Cumputing confidence intervals and paired t-test analysis
+confidence_interval.py
+t_test.py
 ```
 Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
 
@@ -176,7 +180,7 @@ The diagram shows the flow of mouse data from collection to JSON storage.
 
 <br/>
 
-Participants answered yes/no questions truthfully and deceitfully in a browser-based experiment. Mouse dynamics were recorded in real time using JavaScript and saved as JSON via a Node.js backend. Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.<br />
+Participants answered "Yes" and "No" questions truthfully and deceitfully in a browser-based experiment. Mouse dynamics were recorded in real time using JavaScript and saved as JSON via a Node.js backend. Raw (x, y) cursor paths were processed into standardized feature sets including movement derivatives and behavioral summaries. Models were trained using stratified 5-fold cross-validation.<br />
 
 <br/>
 
@@ -250,37 +254,108 @@ This diagram illustrates the end-to-end workflow of the project, starting from d
 
 <br/>
 
-### Model Performance Summary
+## Best Fold Comparison
 
-<br/>
 <div align="center">
 
-| Model                                    | Accuracy | Macro F1 | AUC  |
-|------------------------------------------|----------|----------|------|
-| **Random Forest (Baseline)**             | 58.6 %   | 0.58     | 0.60 |
-| **Random Forest (5-Fold Average)**       | 57.7 %   | 0.576    | 0.62 |
-| **LSTM–GRU–Attention (5-Fold Average)**  | 54.4 %   | 0.55     | 0.57 |
-| **LSTM–GRU–Attention (Best Fold)**       | 62.1 %   | 0.62     | 0.65 |
+| Metric        | Random Forest (Baseline) | Deep Model (Fold 4) |
+|---------------|--------------------------|----------------------|
+| Accuracy      | 0.586                    | **0.621**            |
+| Macro F1      | 0.582                    | **0.621**            |
+| AUC           | 0.620                    | **0.650**            |
 
 </div>
-<br/>
 
-- The Random Forest baseline achieves 58.6 % accuracy; across 5-fold CV it averaged 57.7 % accuracy, 0.576 macro F1, and 0.62 AUC.<br/>
-- The LSTM–GRU–Attention model averaged 54.4 % accuracy, 0.55 macro F1, and 0.57 AUC across folds; its best fold reached 62.1 % accuracy, 0.62 macro F1, and 0.65 AUC.<br/>
-- A paired t-test on the five macro F1 scores (p = 0.462) indicates no statistically significant difference in overall performance.<br/>
+The deep learning model outperformed the Random Forest in Fold 4 across all metrics (+3.5% accuracy, +0.039 macro F1, +0.03 AUC).
 
-<br/>
+## Fold-wise Macro F1 Comparison
 
-### Model Comparison
+<div align="center">
 
-To evaluate both approaches under consistent conditions, we used the same 5-fold stratified splits:
+| Fold | Random Forest | Deep Learning |
+|------|----------------|----------------|
+| 1    | **0.614**      | 0.578          |
+| 2    | **0.579**      | 0.492          |
+| 3    | **0.517**      | 0.514          |
+| 4    | 0.571          | **0.621**      |
+| 5    | **0.599**      | 0.520          |
+| **Avg** | **0.576**  | 0.545          |
 
-- **Consistency:** Random Forest yielded higher macro F1 in 4 of 5 folds, demonstrating more stable performance across splits. The LSTM–GRU–Attention network achieved its highest score only in Fold 4.  
-- **Peak vs. Average:** Although the deep sequence model surpassed the classical baseline in its best fold (62.1 % vs. 58.6 % accuracy), its lower average highlights sensitivity to data partitioning.  
-- **Statistical Significance:** The paired t-test (p = 0.462) confirms no significant difference in average fold performance, suggesting comparable overall reliability.  
-- **Practical Guidance:** For consistent, reliable deployment, Random Forest may be preferable. When maximum accuracy is critical and ample data is available, the deep model offers higher peak performance.
+</div>
 
----  
+Random Forest shows **greater consistency** and higher average macro F1. Deep model peaks higher, but with **larger fold-to-fold variation**.
+
+## Random Forest 5-Fold Results (with 95% Confidence)
+
+<div align="center">
+
+| Metric               | Mean  | 95% CI     |
+|----------------------|--------|------------|
+| Accuracy             | 0.577 | ±0.044     |
+| Macro F1             | 0.576 | ±0.046     |
+| Recall (truthful)    | 0.591 | ±0.048     |
+| Recall (deceitful)   | 0.563 | ±0.103     |
+| AUC                  | 0.620 | ±0.041     |
+
+</div>
+
+The **tight confidence intervals** for accuracy and truthful recall suggest **stable generalization** across folds.  
+The **wider interval** for deceitful recall reflects **greater variability**, possibly due to class imbalance or inconsistency in deceptive behavior.  
+The relatively narrow **AUC interval (±0.041)** reinforces the model’s **consistent class-separation capability** across validation splits.
+
+## Deep Learning 5-Fold Results (with 95% Confidence)
+
+<div align="center">
+
+| Metric               | Mean  | 95% CI     |
+|----------------------|--------|------------|
+| Accuracy             | 0.544 | ±0.068     |
+| Macro F1             | 0.545 | ±0.066     |
+| Recall (truthful)    | 0.544 | ±0.074     |
+| Recall (deceitful)   | 0.566 | ±0.128     |
+| AUC                  | 0.574 | ±0.067     |
+
+</div>
+
+The **tightest confidence intervals** are seen for accuracy and macro F1, suggesting reasonably consistent generalization across folds.  
+However, the **wide interval for deceitful recall (±0.128)** indicates more variation in how the model detects deception across validation splits—possibly due to differences in deceptive patterns between folds.  
+The **AUC margin (±0.067)** reflects a **moderate but stable class separation ability** under different training conditions.
+
+
+## Statistical Testing
+
+**Paired t-test on Macro F1-scores:** p = 0.288  
+The difference in performance between the models is **not statistically significant**.  
+The **overlapping 95% confidence intervals** support this conclusion, indicating that any observed difference may be due to random variation across folds.
+
+
+## Confusion Matrix Comparison
+
+**Random Forest:** 28 false positives, 30 false negatives  
+**Deep Learning (Fold 4):** 26 false positives, 27 false negatives  
+The deep model had slightly **fewer misclassifications** in its best fold.
+
+## ROC Curve Comparison
+
+<div align="center">
+
+| Model              | AUC  |
+|--------------------|------|
+| Random Forest      | 0.62 |
+| Deep Learning (F4) | 0.65 |
+
+</div>
+
+The deep model achieved a slightly higher AUC (**0.65**) than the Random Forest (**0.62**), suggesting improved ability to distinguish between truthful and deceitful responses.
+
+## Summary
+
+- **Deep Model excels in optimal conditions**, capturing complex behavior dynamics with higher peak performance.
+- **Random Forest is more stable**, generalizing reliably across folds with smaller fluctuations.
+- **No statistically significant advantage** for either model — both have complementary strengths.
+- **Practical takeaway:** Use Random Forest when **data is limited** or consistency is needed; deep learning shines when **rich sequential data and tuning** are available.
+
+---
 
 ## Conclusions
 
@@ -319,6 +394,11 @@ This study demonstrates that subtle differences in mouse cursor dynamics can pro
 
 - N. Siddiqui, R. Dave, M. Vanamala, and N. Seliya, “Machine and deep learning applications to mouse dynamics for continuous user authentication,” *Machine Learning and Knowledge Extraction*, vol. 4, no. 1, pp. 1–24, 2022. doi:https://doi.org/10.3390/make4020023. [Online]. Available: https://doi.org/10.48550/arXiv.2205.13646
 
+- S. Raschka, How to compute confidence intervals for machine learning model metrics, Accessed: 2025-05-18, 2022. [Online]. Available: https://sebastianraschka.com/blog/2022/confidence-intervals-for-ml.html.
+
+- Stat Trek, Paired sample hypothesis test, Accessed: 2025-05-18, 2025. [Online]. Available: https://stattrek.com/hypothesis-test/paired-means
+
+
 ---
 
 ## Contributing
@@ -333,7 +413,7 @@ This project was part of a bachelor thesis and is not currently accepting contri
 
 <br/>
 
-This repository is open for academic and non-commercial use. For reuse or citation, please include a reference to the thesis author and NTNU.
+All rights to the thesis and associated materials are governed by the NTNU Standard Agreement on Student Assignments with External Parties (2020), signed on 24.04.2025.
 
 ---
 

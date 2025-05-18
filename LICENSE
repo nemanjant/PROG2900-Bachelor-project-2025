@@ -1,0 +1,19 @@
+This repository contains the source code, documentation, and experimental results from the Bachelor's thesis:
+"Cursor Dynamics for Deception Detection"
+Author: Nemanja Tosic
+Institution: NTNU Gjøvik
+Collaboration: MOBAI AS
+
+All rights to the thesis and associated materials are governed by the NTNU Standard Agreement on Student Assignments with External Parties (2020), signed on 24.04.2025.
+
+Key terms:
+
+- MOBAI AS retains full ownership rights to the results of the thesis project, including source code and findings, as they are part of internal product development and security research.
+- NTNU is granted non-exclusive rights to use the materials for academic and research purposes.
+- The author (student) holds moral rights, including the right to be credited as the creator of the work.
+
+This repository and its contents may not be copied, modified, redistributed, or used for commercial or public purposes without explicit, prior written permission from MOBAI AS.
+
+Contact:
+For academic inquiries: nemanja.tosic@student.ntnu.no  
+For licensing or business matters: brage@mobai.bio

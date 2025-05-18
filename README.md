@@ -69,8 +69,10 @@ PROG2900-Bachelor-project-2025/
 ├── data_analysys_stats/              # Visualization and statistical analysis scripts
 ├── public/                           # Frontend UI for data collection
 ├── server.js                         # Node.js backend for storing JSON data
+├── extra_img                         # GitHub readme diagrams
 ├── package.json / lock               # Node.js config and dependencies
 ├── requirements.txt                  # Python dependencies
+├── LCENSE                            # License
 └── README.md                         # Project documentation (you are here)
 ```
 </details>

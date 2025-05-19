@@ -359,22 +359,32 @@ The deep model achieved a slightly higher AUC (**0.65**) than the Random Forest 
 
 ---
 
-## Conclusions
+## Conclusion
 
-<br/>
+- This project investigated whether mouse movement dynamics can be used to detect deception in binary yes/no tasks.
 
-This study demonstrates that subtle differences in mouse cursor dynamics can provide meaningful signals of deceptive intent. Key findings include:
+- Two types of models were developed and compared:
+  - A **Random Forest classifier** using handcrafted features like speed, acceleration, and curvature.
+  - A **deep learning model** based on **LSTM–GRU with attention**, designed to capture temporal dependencies in mouse movement behavior.
 
-- **Behavioral Indicators:** Deceptive responses tend to be faster overall, exhibit higher acceleration and jerk variability, and show increased curvature in the latter phase of movement. Truthful responses, by contrast, involve more pauses and hesitation events, suggesting more deliberate processing.
-- **Model Comparison:**  
-  - The classical Random Forest classifier delivered stable performance across all folds (≈57.7 % accuracy, 0.576 macro F1, 0.62 AUC), making it a reliable baseline.  
-  - The LSTM–GRU–Attention network achieved a higher peak performance in its best fold (62.1 % accuracy, 0.62 macro F1, 0.65 AUC) but was more sensitive to data splits.
-- **Practical Implications:** For applications requiring consistency and ease of deployment, the Random Forest approach is recommended. When aiming for maximum accuracy and sufficient training data is available, deep sequence models can yield superior peak results.
+- Key findings:
+  - The **deep learning model** achieved the highest fold-level performance (accuracy: 62.1%, macro F1: 0.621).
+  - The **Random Forest model** had slightly higher average performance across all 5 folds and showed better consistency under limited data.
+  - A **paired t-test** found **no statistically significant difference** between the models, highlighting the importance of average performance over best-case results.
 
-**Future Work:**  
-1. **Data Expansion:** Collect larger and more diverse datasets to improve model generalization.  
-2. **Feature Fusion:** Combine cursor dynamics with other behavioral or physiological signals (e.g., keystroke timing, gaze tracking).  
-3. **Real-Time Detection:** Explore online prediction frameworks for real-time deception detection in interactive systems.
+- Evaluation approach:
+  - **5-fold stratified cross-validation** to ensure balanced and fair evaluation.
+  - Computation of **95% confidence intervals** to assess metric stability.
+  - **Statistical significance testing** to validate model comparisons.
+
+- Ethical and practical considerations:
+  - Deception detection tools must address **false positives**, **user consent**, and **fairness**—especially in **sensitive settings like online banking**.
+  - Systems should include safeguards such as **manual review**, **transparent explanations**, and **appeal mechanisms** for flagged users.
+
+- Implications:
+  - Mouse dynamics offer a **scalable**, **non-intrusive**, and **cost-effective** way to infer user intent.
+  - With **larger datasets**, **advanced hybrid models** (e.g., CNN–RNN), and **richer behavioral features**, performance could be further improved.
+  - The study lays the groundwork for future deception detection systems in real-world digital environments.
 
 ---
 

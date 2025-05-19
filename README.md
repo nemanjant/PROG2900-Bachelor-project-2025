@@ -361,7 +361,7 @@ The deep model achieved a slightly higher AUC (**0.65**) than the Random Forest 
 
 ## Conclusions
 
-- This project investigated whether mouse movement dynamics can be used to detect deception in binary yes/no tasks.
+- This project investigated whether mouse movement dynamics can be used to detect deception in binary "Yes" and "No" tasks.
 
 - Two types of models were developed and compared:
   - A **Random Forest classifier** using handcrafted features like speed, acceleration, and curvature.

@@ -1,4 +1,4 @@
-# 🎓 PROG2900 - Bachelor Thesis Project
+s# 🎓 PROG2900 - Bachelor Thesis Project
 
 [![GitHub Repo Stars](https://img.shields.io/github/stars/nemanjant/PROG2900-Bachelor-project-2025?style=social)](https://github.com/nemanjant/PROG2900-Bachelor-project-2025)  
 [![GitHub Forks](https://img.shields.io/github/forks/nemanjant/PROG2900-Bachelor-project-2025?style=social)](https://github.com/nemanjant/PROG2900-Bachelor-project-2025/fork)  
@@ -68,6 +68,11 @@ PROG2900-Bachelor-project-2025/
 │   ├── truthful/                           #   350 JSON files (honest responses)
 │   └── deceitful/                          #   350 JSON files (deceptive responses)
 │
+├── questionnaire_sessions/                 # Raw session output from server (gitignored)
+│   └── session_<id>/
+│       ├── part_1/                         #   Truthful responses
+│       └── part_2/                         #   Deceitful responses
+│
 ├── classical_model_training/               # Random Forest pipeline
 │   ├── model_training_rf_v1.py             #   Baseline 80/20 split
 │   ├── model_training_rf_cv_fold.py        #   5-fold cross-validation
@@ -77,15 +82,12 @@ PROG2900-Bachelor-project-2025/
 ├── deep_learning_model_training/           # LSTM + GRU pipeline
 │   ├── model_training_lstm_gru_v1.py       #   Model version 1
 │   ├── model_training_lstm_gru_v2.py       #   Model version 2 (final)
-│   ├── export_training_log_table.py        #   Export CV results to table
-│   ├── model_fold_1-5.h5                   #   Saved fold models
-│   ├── training_log_fold_1-5.csv           #   Per-fold training history
-│   ├── cv_results_*.csv                    #   20 experiment run logs
-│   └── best_dl/                            #   Best run: charts, models, logs
-│       ├── model_fold_1-5.h5
+│   ├── export_training_log_table.py        #   Export training log fold to PNG table
+│   └── best_dl/                            #   Best run — charts, models, logs
+│       ├── model_fold_1-5.h5               #     Saved fold models (gitignored)
 │       ├── training_log_fold_1-5.csv
 │       ├── cv_results_*.csv
-│       └── *.png                           #   ROC, confusion matrix, PR curves (per fold)
+│       └── *.png                           #     ROC, confusion matrix, PR curves (per fold)
 │
 ├── data_analysis_stats/                    # EDA and statistical analysis
 │   ├── averaged_data/                      #   Pre-computed JSON summaries
@@ -106,11 +108,13 @@ PROG2900-Bachelor-project-2025/
 │       └── t_test.py                       #     Paired t-test analysis
 │
 ├── public/                                 # Frontend questionnaire UI (HTML/CSS/JS)
-├── extra_img/                              # Diagrams used in README
+├── extra_img/                              # Architecture and workflow diagrams for README
 ├── server.js                               # Node.js backend — collects and stores JSON data
+├── sort_sessions.py                        # Sorts raw sessions into data/truthful|deceitful
+├── test_compatibility.py                   # Verifies all Python packages are compatible
+├── .env.example                            # Environment variable template (copy to .env)
 ├── package.json / package-lock.json        # Node.js config and dependencies
 ├── requirements.txt                        # Python dependencies
-├── test_compatibility.py                   # Package compatibility verification tests
 ├── LICENSE                                 # License
 └── README.md                               # Project documentation (you are here)
 ```
@@ -313,6 +317,30 @@ This diagram illustrates the end-to-end workflow of the project, starting from d
 - **Curvature:** Initial curvature is similar, but toward the end of the trajectory, deceptive paths curve more sharply, reflecting irregular directional changes.  
 - **Jerk & Spikes:** Deceptive trials produced roughly 12 jerk spikes (vs. 6 in truthful), and peak jerk values were higher, indicating more abrupt motion changes.  
 - **Hesitation & Pauses:** Truthful responses had more hesitation events (3.23 vs. 2.53) and pauses (5.18 vs. 4.10), despite equal average pause duration (0.62 seconds), suggesting more deliberate processing when truthful.  
+
+<br/>
+
+### Behavioural Summary
+
+<p align="center">
+  <img src="data_analysis_stats/graph_charts/average_mouse_stats_chart_metrics.png" alt="Behavioural Summary Statistics" width="90%" />
+</p>
+
+Deceitful responses are faster and less hesitant. Truthful responses show more pauses and higher hesitation, suggesting deliberate cognitive processing.
+
+<br/>
+
+### Jerk Spike Comparison
+
+<p align="center">
+  <img src="data_analysis_stats/graph_charts/truthful_jerk_spikes.png" alt="Truthful Jerk Spikes" width="80%" />
+</p>
+
+<p align="center">
+  <img src="data_analysis_stats/graph_charts/deceitful_jerk_spikes.png" alt="Deceitful Jerk Spikes" width="80%" />
+</p>
+
+Deceitful responses produce **twice as many jerk spikes** (12 vs. 6), with higher peak magnitudes and spikes distributed throughout the trajectory — not just at the start. This is one of the clearest separating signals in the data.
 
 <br/>
 

@@ -87,7 +87,7 @@ PROG2900-Bachelor-project-2025/
 │       ├── cv_results_*.csv
 │       └── *.png                           #   ROC, confusion matrix, PR curves (per fold)
 │
-├── data_analysys_stats/                    # EDA and statistical analysis
+├── data_analysis_stats/                    # EDA and statistical analysis
 │   ├── averaged_data/                      #   Pre-computed JSON summaries
 │   │   ├── truthful_averaged_result_interpolated.json
 │   │   ├── deceitful_averaged_result_interpolated.json
@@ -132,8 +132,25 @@ cd PROG2900-Bachelor-project-2025
 Make sure you have Python 3.10 and Node.js installed:
 ```bash
 npm install
+```
+
+```bash
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+
+# macOS / Linux
+source .venv/bin/activate
+
 pip install -r requirements.txt
 ```
+
+### 3. Verify compatibility (optional)
+```bash
+python test_compatibility.py
+```
+Runs 11 checks confirming all packages import correctly and TensorFlow works with NumPy.
 
 ---
 
@@ -146,10 +163,14 @@ To run the local web experiment:
 ```bash
 node server.js
 ```
-Mouse movement responses will be saved as structured JSON files. After collection, sort files into `data/truthful/` and `data/deceitful/`.
+Mouse movement responses will be saved as structured JSON files under `questionnaire_sessions/`. After collection, run the sorting script to move them into the correct folders:
+```bash
+python sort_sessions.py          # copy files
+python sort_sessions.py --dry-run  # preview without copying
+```
 
 ### 2. Data Analysis
-Use the scripts in `data_analysys_stats/utils/` to process and visualize data:
+Use the scripts in `data_analysis_stats/utils/` to process and visualize data:
 ```bash
 # Generate summary statistics
 python average_mouse_stats.py
@@ -170,7 +191,7 @@ python labeling_data_training.py
 confidence_interval.py
 t_test.py
 ```
-Outputs are saved in `data_analysys_stats/averaged_data/` and `graph_charts/`.
+Outputs are saved in `data_analysis_stats/averaged_data/` and `graph_charts/`.
 
 ### 3. Model Training
 

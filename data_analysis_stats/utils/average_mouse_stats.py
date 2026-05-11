@@ -58,7 +58,7 @@ def save_stats_to_json(stats, output_path):
 
 def main():
     base_dir = 'data'
-    output_dir = 'data_analysys_stats/averaged_data'
+    output_dir = 'data_analysis_stats/averaged_data'
 
     # Ensure the output directory exists, create if missing
     if not os.path.isdir(output_dir):

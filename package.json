@@ -1,15 +1,14 @@
 {
-  "name": "project-folder",
+  "name": "prog2900-bachelor-project-2025",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": ["deception-detection", "mouse-dynamics", "machine-learning"],
+  "author": "Nemanja Tosic",
+  "license": "Academic Use",
+  "description": "Cursor dynamics for deception detection — data collection server for a bachelor thesis at NTNU Gjøvik.",
   "dependencies": {
     "express": "^4.21.2"
   }

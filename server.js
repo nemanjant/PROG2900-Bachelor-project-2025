@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Create a base folder to store session data
 const baseDataFolder = path.join(__dirname, "questionnaire_sessions");

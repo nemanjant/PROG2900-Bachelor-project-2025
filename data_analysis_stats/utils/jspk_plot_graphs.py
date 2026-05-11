@@ -65,10 +65,10 @@ def plot_jerk_curve(jerks, label, line_color, output_path):
 def main():
     # Define input files and line colors per label
     inputs = {
-        "truthful": ("data_analysys_stats/averaged_data/truthful_averaged_result_interpolated.json", "blue"),
-        "deceitful": ("data_analysys_stats/averaged_data/deceitful_averaged_result_interpolated.json", "red"),
+        "truthful": ("data_analysis_stats/averaged_data/truthful_averaged_result_interpolated.json", "blue"),
+        "deceitful": ("data_analysis_stats/averaged_data/deceitful_averaged_result_interpolated.json", "red"),
     }
-    out_dir = "data_analysys_stats/graph_charts"
+    out_dir = "data_analysis_stats/graph_charts"
     os.makedirs(out_dir, exist_ok=True)
 
     # Iterate through each label to process its data

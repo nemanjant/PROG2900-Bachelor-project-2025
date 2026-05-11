@@ -36,3 +36,8 @@ questionnaire_sessions/
 # Temporary outputs
 *.tmp
 *.log
+
+# Experiment run artifacts (best_dl/ is kept intentionally)
+deep_learning_model_training/cv_results_*.csv
+deep_learning_model_training/training_log_fold_*.csv
+deep_learning_model_training/model_fold_*.h5

@@ -93,5 +93,5 @@ if __name__ == "__main__":
     truth_avg = average_mouse_movements(truthful_interp)
     lie_avg   = average_mouse_movements(deceitful_interp)
 
-    plot_single_path(truth_avg, label="Truthful", color="blue", output_file="data_analysys_stats/graph_charts/truthful_average_mouse_path.png")
-    plot_single_path(lie_avg,   label="Deceitful",   color="red", output_file="data_analysys_stats/graph_charts/deceitful_average_mouse_path.png")
+    plot_single_path(truth_avg, label="Truthful", color="blue", output_file="data_analysis_stats/graph_charts/truthful_average_mouse_path.png")
+    plot_single_path(lie_avg,   label="Deceitful",   color="red", output_file="data_analysis_stats/graph_charts/deceitful_average_mouse_path.png")

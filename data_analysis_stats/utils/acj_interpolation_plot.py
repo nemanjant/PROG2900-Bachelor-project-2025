@@ -123,10 +123,10 @@ if __name__ == "__main__":
     # process both truthful and deceitful
     average_json_from_folder(
         folder_path="data/truthful",
-        output_path="data_analysys_stats/averaged_data/truthful_averaged_result_interpolated.json"
+        output_path="data_analysis_stats/averaged_data/truthful_averaged_result_interpolated.json"
     )
     average_json_from_folder(
         folder_path="data/deceitful",
-        output_path="data_analysys_stats/averaged_data/deceitful_averaged_result_interpolated.json"
+        output_path="data_analysis_stats/averaged_data/deceitful_averaged_result_interpolated.json"
     )
 

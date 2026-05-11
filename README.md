@@ -61,19 +61,58 @@ Detecting deception in real-time interactions is critical for enhancing security
 <details>
 <summary>Click to expand repository layout</summary>
 
-```bash
+```
 PROG2900-Bachelor-project-2025/
-├── classical_model_training/         # Classical Random Forest models
-├── deep_learning_model_training/     # LSTM-GRU-Attention models and logs
-├── data/                             # Raw mouse movement JSON files
-├── data_analysys_stats/              # Visualization and statistical analysis scripts
-├── public/                           # Frontend UI for data collection
-├── server.js                         # Node.js backend for storing JSON data
-├── extra_img                         # GitHub readme diagrams
-├── package.json / lock               # Node.js config and dependencies
-├── requirements.txt                  # Python dependencies
-├── LCENSE                            # License
-└── README.md                         # Project documentation (you are here)
+│
+├── data/                                   # Mouse movement recordings (700 total)
+│   ├── truthful/                           #   350 JSON files (honest responses)
+│   └── deceitful/                          #   350 JSON files (deceptive responses)
+│
+├── classical_model_training/               # Random Forest pipeline
+│   ├── model_training_rf_v1.py             #   Baseline 80/20 split
+│   ├── model_training_rf_cv_fold.py        #   5-fold cross-validation
+│   ├── model_training_rf_cv_auc_fold.py    #   5-fold CV with AUC focus
+│   └── classical_graph/                    #   Output charts and metrics CSV
+│
+├── deep_learning_model_training/           # LSTM + GRU pipeline
+│   ├── model_training_lstm_gru_v1.py       #   Model version 1
+│   ├── model_training_lstm_gru_v2.py       #   Model version 2 (final)
+│   ├── export_training_log_table.py        #   Export CV results to table
+│   ├── model_fold_1-5.h5                   #   Saved fold models
+│   ├── training_log_fold_1-5.csv           #   Per-fold training history
+│   ├── cv_results_*.csv                    #   20 experiment run logs
+│   └── best_dl/                            #   Best run: charts, models, logs
+│       ├── model_fold_1-5.h5
+│       ├── training_log_fold_1-5.csv
+│       ├── cv_results_*.csv
+│       └── *.png                           #   ROC, confusion matrix, PR curves (per fold)
+│
+├── data_analysys_stats/                    # EDA and statistical analysis
+│   ├── averaged_data/                      #   Pre-computed JSON summaries
+│   │   ├── truthful_averaged_result_interpolated.json
+│   │   ├── deceitful_averaged_result_interpolated.json
+│   │   ├── truthful_mouse_stats_summary.json
+│   │   └── deceitful_mouse_stats_summary.json
+│   ├── graph_charts/                       #   Output PNGs (speed, jerk, curvature, paths)
+│   └── utils/                              #   Analysis scripts
+│       ├── average_mouse_stats.py          #     Summary statistics
+│       ├── average_mouse_pattern_graphs.py #     Average cursor path plots
+│       ├── average_mouse_stats_chart.py    #     Metric bar charts
+│       ├── acj_plot_graphs.py              #     Acceleration/curvature/jerk plots
+│       ├── acj_interpolation_plot.py       #     Interpolated ACJ visualization
+│       ├── jspk_plot_graphs.py             #     Jerk spike plots
+│       ├── labeling_data_training.py       #     Attach class labels to JSON
+│       ├── confidence_interval.py          #     95% confidence intervals
+│       └── t_test.py                       #     Paired t-test analysis
+│
+├── public/                                 # Frontend questionnaire UI (HTML/CSS/JS)
+├── extra_img/                              # Diagrams used in README
+├── server.js                               # Node.js backend — collects and stores JSON data
+├── package.json / package-lock.json        # Node.js config and dependencies
+├── requirements.txt                        # Python dependencies
+├── test_compatibility.py                   # Package compatibility verification tests
+├── LICENSE                                 # License
+└── README.md                               # Project documentation (you are here)
 ```
 </details>
 
@@ -90,7 +129,7 @@ cd PROG2900-Bachelor-project-2025
 ```
 
 ### 2. Install dependencies
-Make sure you have Python 3.11 and Node.js installed:
+Make sure you have Python 3.10 and Node.js installed:
 ```bash
 npm install
 pip install -r requirements.txt

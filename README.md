@@ -1,4 +1,4 @@
-s# 🎓 PROG2900 - Bachelor Thesis Project
+# 🎓 PROG2900 - Bachelor Thesis Project
 
 [![GitHub Repo Stars](https://img.shields.io/github/stars/nemanjant/PROG2900-Bachelor-project-2025?style=social)](https://github.com/nemanjant/PROG2900-Bachelor-project-2025)  
 [![GitHub Forks](https://img.shields.io/github/forks/nemanjant/PROG2900-Bachelor-project-2025?style=social)](https://github.com/nemanjant/PROG2900-Bachelor-project-2025/fork)  
@@ -521,7 +521,15 @@ All rights to the thesis and associated materials are governed by the NTNU Stand
 
 <br/>
 
-![Nemanja's GitHub stats](https://github-readme-stats.vercel.app/api?username=nemanjant&show_icons=true&theme=default&hide=prs)
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=nemanjant&show_icons=true&theme=default&hide=prs" alt="Nemanja's GitHub stats" height="165" />
+  &nbsp;
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=nemanjant&layout=compact&theme=default" alt="Top Languages" height="165" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=nemanjant&theme=default" alt="GitHub Streak" />
+</p>
 
 ---
 
